@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#08090C"/>
+  <rect x="8" y="24" width="48" height="16" rx="3" fill="#F5C400" fill-opacity="0.95"/>
+  <text x="32" y="38" font-family="'Cinzel', 'Cormorant Garamond', serif" font-weight="900" font-size="28" fill="#08090C" text-anchor="middle" letter-spacing="-1">H</text>
+  <circle cx="50" cy="18" r="3" fill="#F5C400"/>
+</svg>
