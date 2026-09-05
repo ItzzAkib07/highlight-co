@@ -75,23 +75,31 @@ export const HeroSection = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen w-full flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden bg-gradient-to-b from-white via-slate-50/60 to-white select-none text-brand-navy"
+      className="relative min-h-screen w-full flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden bg-white select-none text-brand-navy"
     >
-      {/* 1. Ambient Dynamic Lighting & High-Production Studio Flares */}
+      {/* 1. Ambient Dynamic Cinema Background Image & Lighting Flares */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {/* Ambient Warm Golden & Cool Navy Mesh Light Flares */}
-        <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-brand-yellow/15 rounded-full blur-[180px] pointer-events-none" />
-        <div className="absolute top-1/3 right-0 w-[550px] h-[550px] bg-amber-400/10 rounded-full blur-[170px] pointer-events-none" />
-        <div className="absolute bottom-10 left-1/3 w-[450px] h-[450px] bg-slate-200/50 rounded-full blur-[140px] pointer-events-none" />
+        {/* Subtle Cinematic Studio Atmosphere Background Image */}
+        <div className="absolute inset-0 opacity-[0.07] mix-blend-multiply">
+          <img
+            src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2000&q=80"
+            alt="Cinema Set Backdrop"
+            className="w-full h-full object-cover object-center filter scale-105"
+          />
+        </div>
 
-        {/* Subtle grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage: `radial-gradient(#0A1128 1px, transparent 1px)`,
-            backgroundSize: '24px 24px',
-          }}
-        />
+        {/* Ambient Warm Golden & Cool Navy Mesh Light Flares with Floating Animations */}
+        <div className="absolute -top-20 -left-20 w-[700px] h-[700px] bg-gradient-to-br from-[#F5C400]/20 via-[#FFE042]/10 to-transparent rounded-full blur-[160px] animate-float-slow pointer-events-none" />
+        <div className="absolute top-1/3 -right-20 w-[600px] h-[600px] bg-gradient-to-bl from-amber-300/15 via-[#F5C400]/10 to-transparent rounded-full blur-[150px] animate-float-reverse pointer-events-none" />
+        <div className="absolute -bottom-20 left-1/4 w-[500px] h-[500px] bg-slate-200/60 rounded-full blur-[140px] animate-pulse-glow pointer-events-none" />
+
+        {/* Elegant Cinema Blueprint Dot Grid */}
+        <div className="absolute inset-0 bg-cinema-grid opacity-60" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-40" />
+
+        {/* Diagonal Soft Light Streak */}
+        <div className="absolute -top-40 left-1/3 w-[2px] h-[1200px] bg-gradient-to-b from-transparent via-[#F5C400]/25 to-transparent rotate-45 transform pointer-events-none" />
+        <div className="absolute -top-60 right-1/4 w-[2px] h-[1200px] bg-gradient-to-b from-transparent via-[#0A1128]/10 to-transparent rotate-45 transform pointer-events-none" />
       </div>
 
       {/* 2. Main Hero Content: Two-Column Split Layout */}
@@ -104,7 +112,7 @@ export const HeroSection = () => {
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
             {/* Live Production Radar Badge */}
-            <div className="hero-pill-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full border-2 border-[#0A1128] bg-white text-[#0A1128] shadow-md shadow-[#0A1128]/10 mb-6">
+            <div className="hero-pill-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#0A1128]/15 bg-white text-[#0A1128] shadow-sm mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F5C400] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F5C400]" />
@@ -132,9 +140,9 @@ export const HeroSection = () => {
               <div className="overflow-hidden py-0.5">
                 <span className="hero-split-line block text-[#0A1128] font-black">
                   That{' '}
-                  <span className="relative inline-block ml-1">
-                    <span className="relative z-10 text-[#060B1A] px-3.5 py-0.5 inline-block italic font-serif font-black">
-                      <span className="absolute inset-0 bg-[#F5C400] rounded-sm -rotate-1 shadow-lg shadow-[#F5C400]/40" />
+                  <span className="relative inline-block ml-1 group/heroHighlight cursor-default">
+                    <span className="relative z-10 text-[#060B1A] px-3.5 py-0.5 inline-block italic font-serif font-black transition-transform duration-300 group-hover/heroHighlight:scale-105">
+                      <span className="absolute inset-0 bg-[#F5C400] rounded-sm -rotate-1 shadow-lg shadow-[#F5C400]/40 group-hover/heroHighlight:rotate-0 group-hover/heroHighlight:shadow-xl group-hover/heroHighlight:shadow-[#F5C400]/60 transition-all duration-300" />
                       <span className="relative z-10 text-[#060B1A] font-serif italic font-black">Matter.</span>
                     </span>
                   </span>
@@ -159,7 +167,7 @@ export const HeroSection = () => {
               ].map((tag, idx) => (
                 <span
                   key={idx}
-                  className="hero-tag-pill px-3.5 py-1.5 rounded-full text-xs font-mono font-black text-[#0A1128] bg-white border-2 border-[#0A1128] hover:bg-[#F5C400] transition-all shadow-sm flex items-center gap-1.5"
+                  className="hero-tag-pill px-3.5 py-1.5 rounded-full text-xs font-mono font-black text-[#0A1128] bg-white border border-[#0A1128]/15 hover:bg-[#F5C400] transition-all shadow-sm flex items-center gap-1.5"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#F5C400]" />
                   <span>{tag}</span>
@@ -176,7 +184,7 @@ export const HeroSection = () => {
                 to="/work"
                 variant="primary"
                 size="lg"
-                className="w-full sm:w-auto shadow-xl shadow-[#F5C400]/30 bg-[#F5C400] text-[#060B1A] font-black border-2 border-[#0A1128] hover:bg-[#FFE042]"
+                className="w-full sm:w-auto shadow-md shadow-[#F5C400]/25 bg-[#F5C400] text-[#060B1A] font-black border border-[#0A1128]/20 hover:bg-[#FFE042]"
               >
                 <span>Explore Selected Work</span>
                 <ArrowUpRight size={18} />
@@ -193,9 +201,9 @@ export const HeroSection = () => {
                   playWhoosh();
                 }}
                 onMouseLeave={resetCursor}
-                className="flex items-center gap-3.5 px-6 py-4 rounded-full border-2 border-[#0A1128] bg-white hover:bg-slate-50 transition-all duration-300 text-[#0A1128] group w-full sm:w-auto justify-center shadow-md backdrop-blur-xl font-bold"
+                className="flex items-center gap-3.5 px-6 py-4 rounded-full border border-[#0A1128]/15 bg-white hover:bg-slate-50 transition-all duration-300 text-[#0A1128] group w-full sm:w-auto justify-center shadow-sm backdrop-blur-xl font-bold"
               >
-                <div className="w-9 h-9 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128] flex items-center justify-center shadow-md shadow-[#F5C400]/40 group-hover:scale-110 transition-transform">
+                <div className="w-9 h-9 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128]/20 flex items-center justify-center shadow-sm shadow-[#F5C400]/30 group-hover:scale-110 transition-transform">
                   <Play size={15} className="ml-0.5 fill-current" />
                 </div>
                 <div className="flex flex-col items-start text-left">
@@ -212,7 +220,7 @@ export const HeroSection = () => {
             {/* Live Proof Metrics Strip */}
             <div
               ref={statsRef}
-              className="mt-10 pt-6 border-t-2 border-[#0A1128]/20 grid grid-cols-3 gap-6 sm:gap-10 w-full max-w-xl"
+              className="mt-10 pt-6 border-t border-[#0A1128]/10 grid grid-cols-3 gap-6 sm:gap-10 w-full max-w-xl"
             >
               <div>
                 <div className="font-serif text-2xl sm:text-3xl font-black text-[#0A1128]">
@@ -252,16 +260,16 @@ export const HeroSection = () => {
             className="lg:col-span-5 relative w-full flex flex-col items-center justify-center mt-6 lg:mt-0"
           >
             {/* Holographic 3D Viewport Deck Frame */}
-            <div className="relative w-full max-w-[540px] lg:max-w-none aspect-square sm:aspect-[4/3] lg:aspect-[4/4.2] rounded-3xl overflow-hidden bg-white border-2 border-[#0A1128] shadow-2xl shadow-[#0A1128]/10 transition-all duration-500 group">
+            <div className="relative w-full max-w-[540px] lg:max-w-none aspect-square sm:aspect-[4/3] lg:aspect-[4/4.2] rounded-3xl overflow-hidden bg-white border border-[#0A1128]/15 shadow-xl transition-all duration-500 group">
               
               {/* Top Camera HUD Overlay */}
-              <div className="absolute top-0 inset-x-0 z-20 px-5 py-4 flex items-center justify-between border-b-2 border-[#0A1128] bg-white/95 backdrop-blur-md text-[11px] font-mono text-[#0A1128]">
+              <div className="absolute top-0 inset-x-0 z-20 px-5 py-4 flex items-center justify-between border-b border-[#0A1128]/10 bg-white/95 backdrop-blur-md text-[11px] font-mono text-[#0A1128]">
                 <div className="flex items-center gap-2 text-rose-600">
                   <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse" />
                   <span className="font-black tracking-wider">● REC [00:24:18:09]</span>
                 </div>
                 <div className="flex items-center gap-3 text-[#0A1128] font-black">
-                  <span className="bg-[#F5C400]/30 px-2 py-0.5 rounded border border-[#0A1128]/40">8K RAW // 120 FPS</span>
+                  <span className="bg-[#F5C400]/30 px-2 py-0.5 rounded border border-[#0A1128]/20">8K RAW // 120 FPS</span>
                   <span>•</span>
                   <span>T1.3 ANAMORPHIC</span>
                 </div>
@@ -273,15 +281,15 @@ export const HeroSection = () => {
               </div>
 
               {/* Viewport Tech Corner Markers */}
-              <div className="absolute top-14 left-4 w-4 h-4 border-t-2 border-l-2 border-[#0A1128] pointer-events-none" />
-              <div className="absolute top-14 right-4 w-4 h-4 border-t-2 border-r-2 border-[#0A1128] pointer-events-none" />
-              <div className="absolute bottom-20 left-4 w-4 h-4 border-b-2 border-l-2 border-[#0A1128] pointer-events-none" />
-              <div className="absolute bottom-20 right-4 w-4 h-4 border-b-2 border-r-2 border-[#0A1128] pointer-events-none" />
+              <div className="absolute top-14 left-4 w-4 h-4 border-t border-l border-[#0A1128]/30 pointer-events-none" />
+              <div className="absolute top-14 right-4 w-4 h-4 border-t border-r border-[#0A1128]/30 pointer-events-none" />
+              <div className="absolute bottom-20 left-4 w-4 h-4 border-b border-l border-[#0A1128]/30 pointer-events-none" />
+              <div className="absolute bottom-20 right-4 w-4 h-4 border-b border-r border-[#0A1128]/30 pointer-events-none" />
 
               {/* Bottom Interactive Floating HUD Card */}
-              <div className="absolute bottom-0 inset-x-0 z-20 px-5 py-3.5 border-t-2 border-[#0A1128] bg-white/95 backdrop-blur-xl flex items-center justify-between text-[#0A1128]">
+              <div className="absolute bottom-0 inset-x-0 z-20 px-5 py-3.5 border-t border-[#0A1128]/10 bg-white/95 backdrop-blur-xl flex items-center justify-between text-[#0A1128]">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-[#F5C400]/30 border-2 border-[#0A1128] text-[#0A1128] flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-xl bg-[#F5C400]/30 border border-[#0A1128]/20 text-[#0A1128] flex items-center justify-center">
                     <Aperture size={16} className="animate-[spin_8s_linear_infinite]" />
                   </div>
                   <div className="text-left">
@@ -313,7 +321,7 @@ export const HeroSection = () => {
       </div>
 
       {/* 3. Bottom Status Ticker & Global Commission Availability */}
-      <div className="relative z-20 w-full max-w-[1600px] mx-auto pt-4 border-t-2 border-[#0A1128]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#0A1128]">
+      <div className="relative z-20 w-full max-w-[1600px] mx-auto pt-4 border-t border-[#0A1128]/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#0A1128]">
         <div className="flex items-center gap-4">
           <span className="text-[#0A1128] font-black flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#F5C400] animate-pulse" />

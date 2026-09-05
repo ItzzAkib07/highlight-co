@@ -15,7 +15,7 @@ export const MarqueeTicker = ({ reverse = false }) => {
   ];
 
   return (
-    <div className="relative w-full py-4 sm:py-5 bg-white border-y-2 border-[#0A1128]/20 overflow-hidden select-none shadow-sm">
+    <div className="relative w-full py-4 sm:py-5 bg-white border-y border-[#0A1128]/10 overflow-hidden select-none shadow-sm">
       {/* Soft gradient masks at edges */}
       <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />

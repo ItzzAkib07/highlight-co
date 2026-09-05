@@ -13,9 +13,13 @@ export const InteractiveServices = () => {
   const { playWhoosh, playClickTone } = useSound();
 
   return (
-    <section className="relative py-24 sm:py-32 px-6 sm:px-8 md:px-12 bg-white text-[#0A1128] overflow-hidden select-none border-b-2 border-[#0A1128]/20">
-      {/* Dynamic Background Media Glow */}
-      <div className="absolute top-1/3 -right-20 w-[550px] h-[550px] bg-[#F5C400]/10 rounded-full blur-[170px] pointer-events-none" />
+    <section className="relative py-24 sm:py-32 px-6 sm:px-8 md:px-12 bg-white text-[#0A1128] overflow-hidden select-none border-b border-[#0A1128]/10">
+      {/* Dynamic Background Media Glow & Grids */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/3 -right-20 w-[600px] h-[600px] bg-gradient-to-bl from-[#F5C400]/15 via-amber-300/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
+        <div className="absolute bottom-10 -left-20 w-[500px] h-[500px] bg-gradient-to-tr from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
+        <div className="absolute inset-0 bg-cinema-grid opacity-40" />
+      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
@@ -33,7 +37,7 @@ export const InteractiveServices = () => {
             to="/services"
             variant="outline"
             size="md"
-            className="self-start md:self-end border-2 border-[#0A1128] text-[#0A1128] hover:bg-[#F5C400] hover:text-[#060B1A] font-black shadow-sm"
+            className="self-start md:self-end border border-[#0A1128]/20 text-[#0A1128] hover:bg-[#F5C400] hover:text-[#060B1A] font-black shadow-sm"
           >
             <span>All Capabilities & Specs</span>
             <ArrowUpRight size={16} />
@@ -43,7 +47,7 @@ export const InteractiveServices = () => {
         {/* Services Interactive Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: Interactive List */}
-          <div className="lg:col-span-7 flex flex-col divide-y-2 divide-[#0A1128]/15 border-y-2 border-[#0A1128]/15">
+          <div className="lg:col-span-7 flex flex-col divide-y divide-[#0A1128]/10 border-y border-[#0A1128]/10">
             {servicesData.map((service) => {
               const isCurrent = activeService.id === service.id;
               return (
@@ -60,7 +64,7 @@ export const InteractiveServices = () => {
                     playClickTone();
                   }}
                   className={`py-6 sm:py-8 transition-all duration-300 cursor-pointer flex flex-col group ${
-                    isCurrent ? 'pl-4 sm:pl-6 border-l-4 border-[#0A1128] bg-slate-50 rounded-r-2xl shadow-sm' : 'hover:pl-2'
+                    isCurrent ? 'pl-4 sm:pl-6 border-l-2 border-[#0A1128] bg-slate-50 rounded-r-2xl shadow-sm' : 'hover:pl-2'
                   }`}
                 >
                   <div className="flex items-center justify-between">
@@ -98,7 +102,7 @@ export const InteractiveServices = () => {
           </div>
 
           {/* Right: Dynamic Interactive Showcase Card (Desktop) */}
-          <div className="hidden lg:flex lg:col-span-5 flex-col rounded-3xl overflow-hidden bg-slate-50 border-2 border-[#0A1128] p-8 sticky top-28 shadow-xl animate-fade-in text-[#0A1128]">
+          <div className="hidden lg:flex lg:col-span-5 flex-col rounded-3xl overflow-hidden bg-slate-50 border border-[#0A1128]/15 p-8 sticky top-28 shadow-xl animate-fade-in text-[#0A1128]">
             {/* Live Media Thumbnail with Clip Reveal */}
             <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden mb-6 bg-[#0A1128]">
               <img
@@ -123,7 +127,7 @@ export const InteractiveServices = () => {
             </p>
 
             {/* Capability Bullets */}
-            <div className="space-y-2.5 mb-6 border-t-2 border-[#0A1128]/15 pt-4">
+            <div className="space-y-2.5 mb-6 border-t border-[#0A1128]/10 pt-4">
               <span className="text-[11px] uppercase font-mono tracking-widest text-[#0A1128] font-black block">
                 Deliverables & Rig Standards
               </span>
@@ -139,7 +143,7 @@ export const InteractiveServices = () => {
             <Link
               to="/services"
               onClick={playClickTone}
-              className="w-full py-3.5 rounded-full bg-[#F5C400] text-[#060B1A] font-heading font-black text-xs uppercase tracking-widest text-center hover:bg-[#FFE042] border-2 border-[#0A1128] transition-colors flex items-center justify-center gap-2 shadow-lg shadow-[#F5C400]/30"
+              className="w-full py-3.5 rounded-full bg-[#F5C400] text-[#060B1A] font-heading font-black text-xs uppercase tracking-widest text-center hover:bg-[#FFE042] border border-[#0A1128]/20 transition-colors flex items-center justify-center gap-2 shadow-md shadow-[#F5C400]/25"
             >
               <span>Explore {activeService.title} Specs</span>
               <ArrowUpRight size={14} />

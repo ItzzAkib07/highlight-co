@@ -52,7 +52,7 @@ export const InteractivePrism = () => {
       onMouseLeave={resetCursor}
     >
       <div className="absolute top-6 left-6 z-10 font-mono text-xs text-[#0A1128]">
-        <span className="text-[#060B1A] font-black bg-[#F5C400] px-2.5 py-1 rounded-full border border-[#0A1128] shadow-sm">// 3D OPTICAL CORE</span>
+        <span className="text-[#060B1A] font-black bg-[#F5C400] px-2.5 py-1 rounded-full border border-[#0A1128]/20 shadow-sm">// 3D OPTICAL CORE</span>
         <p className="text-[11px] text-[#0A1128] font-black mt-2">Interactive Anamorphic Prism — Click & Rotate</p>
       </div>
 

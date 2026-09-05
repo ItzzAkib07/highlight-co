@@ -40,13 +40,18 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-white border-t-2 border-[#0A1128] pt-20 pb-12 overflow-hidden text-[#0A1128]">
-      {/* Ambient background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-[#F5C400]/10 rounded-full blur-[160px] pointer-events-none" />
+    <footer className="relative bg-white border-t border-[#0A1128]/10 pt-20 pb-12 overflow-hidden text-[#0A1128]">
+      {/* Dynamic Animated Ambient Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 bg-cinema-grid opacity-35" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-15" />
+        <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-gradient-to-t from-[#F5C400]/20 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-slow" />
+        <div className="absolute top-10 -right-20 w-[450px] h-[450px] bg-[#0A1128]/5 rounded-full blur-[140px] animate-float-reverse" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 relative z-10">
         {/* Top Call to Action / Pitch */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 border-b-2 border-[#0A1128]/20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 border-b border-[#0A1128]/10">
           <div className="lg:col-span-7">
             <span className="text-xs uppercase font-mono tracking-widest text-[#0A1128] font-black mb-4 block">
               // NEXT PRODUCTION WINDOW OPEN
@@ -76,7 +81,7 @@ export const Footer = () => {
                   onClick={() => handleCopyEmail('hello@highlightco.in')}
                   onMouseEnter={() => setCursor('hover')}
                   onMouseLeave={resetCursor}
-                  className="px-4 py-2 rounded-full border-2 border-[#0A1128] bg-white hover:bg-[#F5C400] text-[#0A1128] font-black transition-all flex items-center gap-2 text-xs font-mono shadow-sm"
+                  className="px-4 py-2 rounded-full border border-[#0A1128]/15 bg-white hover:bg-[#F5C400] text-[#0A1128] font-black transition-all flex items-center gap-2 text-xs font-mono shadow-sm"
                 >
                   {copiedEmail ? <Check size={14} className="text-[#0A1128]" /> : <Copy size={14} />}
                   <span>{copiedEmail ? 'Copied to Clipboard' : 'hello@highlightco.in'}</span>
@@ -93,7 +98,7 @@ export const Footer = () => {
         </div>
 
         {/* Middle Navigation & Info Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 py-16 border-b-2 border-[#0A1128]/20">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 py-16 border-b border-[#0A1128]/10">
           {/* Brand Info */}
           <div className="col-span-2 space-y-4">
             <BrandLogo size="lg" isLight={true} />
@@ -168,11 +173,81 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Oversized Brand Typography Graphic */}
-        <div className="py-12 flex justify-center text-center overflow-hidden select-none opacity-10 hover:opacity-20 transition-opacity duration-500">
-          <span className="font-serif text-[12vw] font-black tracking-tighter uppercase whitespace-nowrap text-[#0A1128]">
-            HIGHLIGHT CO
-          </span>
+        {/* Oversized Brand Typography Graphic - Highlighted, Eye-Catchy with Glowing Atmosphere & Hover Animation */}
+        <div
+          className="group relative py-12 sm:py-16 my-4 w-full flex flex-col justify-center items-center select-none cursor-pointer overflow-hidden rounded-3xl"
+          onMouseEnter={() => setCursor('focus', 'HIGHLIGHT')}
+          onMouseLeave={resetCursor}
+        >
+          {/* Ambient luminous spotlight aura behind the brand */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-[85%] h-24 sm:h-36 bg-gradient-to-r from-[#F5C400]/5 via-[#F5C400]/25 to-[#F5C400]/5 rounded-full blur-[70px] group-hover:blur-[50px] group-hover:bg-[#F5C400]/45 group-hover:scale-110 transition-all duration-700 animate-pulse-glow" />
+          </div>
+
+          {/* Dynamic yellow highlighter marker bar behind HIGHLIGHT */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] sm:w-[72%] h-[60%] bg-[#F5C400]/20 rounded-2xl -rotate-1 group-hover:rotate-0 group-hover:scale-105 group-hover:bg-[#F5C400]/35 transition-all duration-500 pointer-events-none border border-[#F5C400]/30 group-hover:border-[#F5C400]/60 shadow-lg shadow-[#F5C400]/10" />
+
+          {/* Scalable SVG Text with Highlight Styling */}
+          <svg
+            viewBox="0 0 1000 130"
+            className="relative z-10 w-full h-auto max-w-full block filter group-hover:drop-shadow-[0_8px_30px_rgba(245,196,0,0.5)] transition-all duration-500"
+            aria-hidden="true"
+          >
+            <defs>
+              <linearGradient id="goldTextShimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0A1128" />
+                <stop offset="35%" stopColor="#D4A100" />
+                <stop offset="50%" stopColor="#F5C400" />
+                <stop offset="65%" stopColor="#D4A100" />
+                <stop offset="100%" stopColor="#0A1128" />
+              </linearGradient>
+            </defs>
+
+            {/* Glowing Golden Stroke for depth on hover */}
+            <text
+              x="50%"
+              y="55%"
+              dominantBaseline="middle"
+              textAnchor="middle"
+              fill="none"
+              stroke="#F5C400"
+              strokeWidth="4"
+              className="font-serif font-black uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              style={{
+                fontFamily: '"Cormorant Garamond", "Cinzel", "Playfair Display", serif',
+                fontSize: '110px',
+                fontWeight: 900,
+                letterSpacing: '-0.02em',
+              }}
+            >
+              HIGHLIGHT CO
+            </text>
+
+            {/* Main Foreground Text */}
+            <text
+              x="50%"
+              y="55%"
+              dominantBaseline="middle"
+              textAnchor="middle"
+              fill="#0A1128"
+              className="font-serif font-black uppercase transition-all duration-500 group-hover:fill-[#060B1A]"
+              style={{
+                fontFamily: '"Cormorant Garamond", "Cinzel", "Playfair Display", serif',
+                fontSize: '110px',
+                fontWeight: 900,
+                letterSpacing: '-0.02em',
+              }}
+            >
+              HIGHLIGHT CO
+            </text>
+          </svg>
+
+          {/* Micro tag under the highlight graphic */}
+          <div className="relative z-10 mt-3 flex items-center gap-3 text-[11px] font-mono tracking-[0.3em] uppercase text-[#0A1128]/70 font-black group-hover:text-[#0A1128] transition-colors">
+            <span className="w-8 h-[2px] bg-[#F5C400]" />
+            <span>CINEMATIC ARCHIVE & FILM PRODUCTION</span>
+            <span className="w-8 h-[2px] bg-[#F5C400]" />
+          </div>
         </div>
 
         {/* Bottom copyright & socials */}

@@ -46,7 +46,7 @@ export const Navbar = () => {
       <header
         className={`fixed top-0 left-0 right-0 w-full z-[5000] transition-all duration-500 select-none ${
           isScrolled
-            ? 'py-3 bg-white/95 backdrop-blur-2xl border-b-2 border-[#0A1128] shadow-[0_8px_30px_rgba(10,17,40,0.06)]'
+            ? 'py-3 bg-white/95 backdrop-blur-2xl border-b border-[#0A1128]/10 shadow-[0_8px_30px_rgba(10,17,40,0.04)]'
             : 'py-4 sm:py-6 bg-gradient-to-b from-white via-white/80 to-transparent'
         }`}
       >
@@ -60,7 +60,7 @@ export const Navbar = () => {
               <BrandLogo size={isScrolled ? 'default' : 'lg'} isLight={true} />
             </div>
 
-            <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-white border-2 border-[#0A1128] text-[10px] font-mono tracking-widest text-[#0A1128] shadow-sm">
+            <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#0A1128]/15 text-[10px] font-mono tracking-widest text-[#0A1128] shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#F5C400] animate-pulse" />
               <span className="text-[#0A1128] font-black">EST. 2026</span>
               <span className="font-bold">// CINEMATIC STUDIO</span>
@@ -68,7 +68,7 @@ export const Navbar = () => {
           </div>
 
           {/* Center: Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 sm:gap-1.5 p-1.5 rounded-full bg-white border-2 border-[#0A1128] backdrop-blur-xl shadow-md">
+          <nav className="hidden md:flex items-center gap-1 sm:gap-1.5 p-1.5 rounded-full bg-white border border-[#0A1128]/15 backdrop-blur-xl shadow-sm">
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
@@ -83,7 +83,7 @@ export const Navbar = () => {
                 className={({ isActive }) =>
                   `relative px-4 py-1.5 rounded-full font-heading text-xs tracking-widest uppercase font-black transition-all duration-300 ${
                     isActive
-                      ? 'bg-[#F5C400] text-[#060B1A] shadow-md shadow-[#F5C400]/30 font-black border border-[#0A1128] scale-[1.02]'
+                      ? 'bg-[#F5C400] text-[#060B1A] shadow-md shadow-[#F5C400]/25 font-black border border-[#0A1128]/20 scale-[1.02]'
                       : 'text-[#0A1128] hover:bg-[#F5C400]/20 font-black'
                   }`
                 }
@@ -96,7 +96,7 @@ export const Navbar = () => {
           {/* Right: Actions (Status + CTA + Mobile Hamburger) */}
           <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
             {/* Live Availability Tag */}
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border-2 border-[#0A1128] text-xs font-mono text-[#0A1128] shadow-sm font-black">
+            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#0A1128]/15 text-xs font-mono text-[#0A1128] shadow-sm font-black">
               <span className="w-2 h-2 rounded-full bg-[#F5C400] animate-pulse" />
               <span className="text-[10px] uppercase tracking-wider font-black">Commission Open</span>
             </div>
@@ -107,7 +107,7 @@ export const Navbar = () => {
                 to="/contact"
                 variant="primary"
                 size="sm"
-                className="group shadow-lg shadow-[#F5C400]/30 bg-[#F5C400] text-[#060B1A] font-black border-2 border-[#0A1128] hover:bg-[#FFE042]"
+                className="group shadow-md shadow-[#F5C400]/25 bg-[#F5C400] text-[#060B1A] font-black border border-[#0A1128]/20 hover:bg-[#FFE042]"
               >
                 <span>Start a Project</span>
                 <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
@@ -117,7 +117,7 @@ export const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="md:hidden p-2 rounded-xl bg-white text-[#0A1128] hover:text-[#060B1A] hover:bg-[#F5C400] border-2 border-[#0A1128] transition-colors shadow-sm"
+              className="md:hidden p-2 rounded-xl bg-white text-[#0A1128] hover:text-[#060B1A] hover:bg-[#F5C400] border border-[#0A1128]/15 transition-colors shadow-sm"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}

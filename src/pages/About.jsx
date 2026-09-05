@@ -16,8 +16,15 @@ export const About = () => {
   ];
 
   return (
-    <div className="relative w-full bg-white min-h-screen pt-32 pb-16">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+    <div className="relative w-full bg-white min-h-screen pt-32 pb-16 overflow-hidden select-none">
+      {/* Dynamic Background Atmosphere */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-32 -left-32 w-[700px] h-[700px] bg-gradient-to-br from-[#F5C400]/15 via-amber-200/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
+        <div className="absolute top-1/2 -right-32 w-[650px] h-[650px] bg-gradient-to-bl from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
+        <div className="absolute inset-0 bg-cinema-grid opacity-35" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 relative z-10">
         {/* Page Header */}
         <SectionHeader
           number="THE STUDIO // IDENTITY"
@@ -29,14 +36,14 @@ export const About = () => {
         />
 
         {/* Hero Image Showcase */}
-        <div className="relative aspect-[21/9] w-full rounded-3xl overflow-hidden bg-white border-2 border-[#0A1128] mb-20 shadow-xl">
+        <div className="relative aspect-[21/9] w-full rounded-3xl overflow-hidden bg-white border border-[#0A1128]/15 mb-20 shadow-xl">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80"
             alt="Highlight Co Studio Production"
             className="w-full h-full object-cover object-center filter brightness-95 contrast-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/70 via-transparent to-transparent" />
-          <div className="absolute bottom-6 left-6 z-10 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border-2 border-[#0A1128] text-xs font-mono text-[#0A1128] font-black shadow-md">
+          <div className="absolute bottom-6 left-6 z-10 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-xs font-mono text-[#0A1128] font-black shadow-sm">
             HIGHLIGHT CO // MUMBAI & PUNE SETS
           </div>
         </div>
@@ -65,7 +72,7 @@ export const About = () => {
           </div>
 
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="p-6 rounded-3xl bg-slate-50 border-2 border-[#0A1128] shadow-md space-y-3">
+            <div className="p-6 rounded-3xl bg-slate-50 border border-[#0A1128]/15 shadow-sm space-y-3">
               <Eye size={24} className="text-[#0A1128]" />
               <h4 className="font-serif font-black text-lg text-[#0A1128]">Visual Dignity</h4>
               <p className="text-xs text-[#0A1128] font-medium leading-relaxed">
@@ -73,7 +80,7 @@ export const About = () => {
               </p>
             </div>
 
-            <div className="p-6 rounded-3xl bg-slate-50 border-2 border-[#0A1128] shadow-md space-y-3">
+            <div className="p-6 rounded-3xl bg-slate-50 border border-[#0A1128]/15 shadow-sm space-y-3">
               <HeartHandshake size={24} className="text-[#0A1128]" />
               <h4 className="font-serif font-black text-lg text-[#0A1128]">Collaborative Trust</h4>
               <p className="text-xs text-[#0A1128] font-medium leading-relaxed">
@@ -81,7 +88,7 @@ export const About = () => {
               </p>
             </div>
 
-            <div className="p-6 rounded-3xl bg-slate-50 border-2 border-[#0A1128] shadow-md space-y-3">
+            <div className="p-6 rounded-3xl bg-slate-50 border border-[#0A1128]/15 shadow-sm space-y-3">
               <Camera size={24} className="text-[#0A1128]" />
               <h4 className="font-serif font-black text-lg text-[#0A1128]">Hollywood Optics</h4>
               <p className="text-xs text-[#0A1128] font-medium leading-relaxed">
@@ -89,7 +96,7 @@ export const About = () => {
               </p>
             </div>
 
-            <div className="p-6 rounded-3xl bg-slate-50 border-2 border-[#0A1128] shadow-md space-y-3">
+            <div className="p-6 rounded-3xl bg-slate-50 border border-[#0A1128]/15 shadow-sm space-y-3">
               <Award size={24} className="text-[#0A1128]" />
               <h4 className="font-serif font-black text-lg text-[#0A1128]">Guaranteed Impact</h4>
               <p className="text-xs text-[#0A1128] font-medium leading-relaxed">
@@ -117,9 +124,9 @@ export const About = () => {
             {gearInventory.map((item, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-3xl bg-white text-[#0A1128] border-2 border-[#0A1128] shadow-md hover:shadow-xl transition-all"
+                className="p-6 rounded-3xl bg-white text-[#0A1128] border border-[#0A1128]/15 shadow-sm hover:shadow-xl transition-all"
               >
-                <span className="text-[10px] font-mono text-[#0A1128] uppercase tracking-wider block font-black bg-[#F5C400]/30 px-2 py-0.5 rounded w-fit border border-[#0A1128]/30">
+                <span className="text-[10px] font-mono text-[#0A1128] uppercase tracking-wider block font-black bg-[#F5C400]/30 px-2 py-0.5 rounded w-fit border border-[#0A1128]/20">
                   {item.category}
                 </span>
                 <h4 className="text-lg font-serif font-black text-[#0A1128] mt-2">
@@ -134,7 +141,7 @@ export const About = () => {
         </div>
 
         {/* Live Studio Counters */}
-        <div className="p-10 rounded-3xl bg-white border-2 border-[#0A1128] text-[#0A1128] grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 text-center shadow-xl">
+        <div className="p-10 rounded-3xl bg-white border border-[#0A1128]/15 text-[#0A1128] grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 text-center shadow-xl">
           {studioStats.map((stat, i) => (
             <div key={i}>
               <span className="font-serif text-4xl sm:text-5xl font-black text-[#0A1128] block">

@@ -150,7 +150,7 @@ export const IntroSplash = ({ onComplete }) => {
       {/* Skip button */}
       <button
         onClick={handleSkip}
-        className="absolute bottom-8 right-8 px-5 py-2.5 text-xs tracking-widest uppercase font-heading font-black text-[#0A1128] hover:text-[#060B1A] hover:bg-[#F5C400] border-2 border-[#0A1128] rounded-full transition-all duration-300 bg-white shadow-md cursor-pointer"
+        className="absolute bottom-8 right-8 px-5 py-2.5 text-xs tracking-widest uppercase font-heading font-black text-[#0A1128] hover:text-[#060B1A] hover:bg-[#F5C400] hover:border-[#F5C400] border border-[#0A1128]/20 rounded-full transition-all duration-300 bg-white shadow-md cursor-pointer"
       >
         Skip Intro ↵
       </button>

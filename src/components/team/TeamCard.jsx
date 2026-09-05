@@ -10,7 +10,7 @@ export const TeamCard = ({ member, index = 0 }) => {
 
   return (
     <div
-      className="group relative flex flex-col rounded-3xl overflow-hidden bg-white border-2 border-[#0A1128] shadow-md hover:shadow-2xl transition-all duration-500"
+      className="group relative flex flex-col rounded-3xl overflow-hidden bg-white border border-[#0A1128]/15 shadow-sm hover:shadow-xl transition-all duration-500"
       onMouseEnter={() => {
         setCursor('hover');
         playWhoosh();
@@ -27,7 +27,7 @@ export const TeamCard = ({ member, index = 0 }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/80 via-transparent to-transparent opacity-70 group-hover:opacity-40 transition-opacity duration-500" />
 
         {/* Floating Role Badge */}
-        <div className="absolute top-4 left-4 z-10 px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-md border-2 border-[#0A1128] text-[#0A1128] text-xs font-mono font-black shadow-md">
+        <div className="absolute top-4 left-4 z-10 px-3.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-[#0A1128] text-xs font-mono font-black shadow-sm">
           {member.role}
         </div>
       </div>
@@ -45,14 +45,14 @@ export const TeamCard = ({ member, index = 0 }) => {
 
           {/* Director / Vision Quote */}
           {member.quote && (
-            <div className="mt-4 p-3.5 rounded-2xl bg-slate-50 border-2 border-[#0A1128] border-l-4 border-l-[#F5C400] text-xs italic font-serif text-[#0A1128] font-bold">
+            <div className="mt-4 p-3.5 rounded-2xl bg-slate-50 border border-[#0A1128]/15 border-l-4 border-l-[#F5C400] text-xs italic font-serif text-[#0A1128] font-bold">
               "{member.quote}"
             </div>
           )}
         </div>
 
         {/* Social Links & Specializations */}
-        <div className="mt-6 pt-4 border-t-2 border-[#0A1128]/15 flex items-center justify-between">
+        <div className="mt-6 pt-4 border-t border-[#0A1128]/10 flex items-center justify-between">
           <div className="flex items-center gap-1.5 flex-wrap">
             {member.specialties?.slice(0, 2).map((spec, i) => (
               <span

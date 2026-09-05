@@ -9,11 +9,11 @@ export const MobileMenu = ({ isOpen, onClose, links }) => {
   return (
     <div className="fixed inset-0 z-[6000] bg-white text-[#0A1128] flex flex-col justify-between p-6 sm:p-8 animate-fade-in md:hidden select-none">
       {/* Top Bar */}
-      <div className="flex items-center justify-between border-b-2 border-[#0A1128]/20 pb-4">
+      <div className="flex items-center justify-between border-b border-[#0A1128]/10 pb-4">
         <BrandLogo size="default" isLight={true} />
         <button
           onClick={onClose}
-          className="p-2.5 rounded-full border-2 border-[#0A1128] bg-white text-[#0A1128] hover:bg-[#F5C400]"
+          className="p-2.5 rounded-full border border-[#0A1128]/15 bg-white text-[#0A1128] hover:bg-[#F5C400]"
           aria-label="Close Menu"
         >
           <X size={22} />
@@ -33,7 +33,7 @@ export const MobileMenu = ({ isOpen, onClose, links }) => {
             onClick={onClose}
             className={({ isActive }) =>
               `text-3xl sm:text-4xl font-serif font-black transition-all flex items-center justify-between ${
-                isActive ? 'text-[#060B1A] pl-3 border-l-4 border-[#0A1128] bg-slate-50 py-1 rounded-r-xl' : 'text-[#0A1128] hover:text-[#D4A100]'
+                isActive ? 'text-[#060B1A] pl-3 border-l-2 border-[#0A1128] bg-slate-50 py-1 rounded-r-xl' : 'text-[#0A1128] hover:text-[#D4A100]'
               }`
             }
           >
@@ -46,7 +46,7 @@ export const MobileMenu = ({ isOpen, onClose, links }) => {
           <Link
             to="/contact"
             onClick={onClose}
-            className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-[#F5C400] text-[#060B1A] font-heading font-black text-sm tracking-widest uppercase border-2 border-[#0A1128] shadow-lg shadow-[#F5C400]/30"
+            className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-[#F5C400] text-[#060B1A] font-heading font-black text-sm tracking-widest uppercase border border-[#0A1128]/20 shadow-md shadow-[#F5C400]/25"
           >
             <span>Start a Project</span>
             <ArrowUpRight size={16} />
@@ -55,7 +55,7 @@ export const MobileMenu = ({ isOpen, onClose, links }) => {
       </div>
 
       {/* Footer Info */}
-      <div className="border-t-2 border-[#0A1128]/20 pt-6 flex items-center justify-between text-xs font-mono text-[#0A1128] font-bold">
+      <div className="border-t border-[#0A1128]/10 pt-6 flex items-center justify-between text-xs font-mono text-[#0A1128] font-bold">
         <div className="flex items-center gap-2 text-emerald-800">
           <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
           <span className="font-bold">Available for Commissions</span>

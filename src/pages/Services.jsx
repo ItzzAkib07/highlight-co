@@ -7,8 +7,15 @@ import { CheckCircle2, Film, Camera, Sparkles, Sliders, ArrowUpRight, Cpu } from
 
 export const Services = () => {
   return (
-    <div className="relative w-full bg-white min-h-screen pt-32 pb-16">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+    <div className="relative w-full bg-white min-h-screen pt-32 pb-16 overflow-hidden select-none">
+      {/* Dynamic Background Atmosphere */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-32 right-0 w-[700px] h-[700px] bg-gradient-to-bl from-[#F5C400]/15 via-amber-200/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
+        <div className="absolute top-1/2 -left-32 w-[650px] h-[650px] bg-gradient-to-tr from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
+        <div className="absolute inset-0 bg-cinema-grid opacity-35" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 relative z-10">
         {/* Page Header */}
         <SectionHeader
           number="PRODUCTION SUITE // 2026"
@@ -24,17 +31,17 @@ export const Services = () => {
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-8 sm:p-12 rounded-3xl bg-slate-50 border-2 border-[#0A1128] shadow-md transition-all items-center"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 p-8 sm:p-12 rounded-3xl bg-slate-50 border border-[#0A1128]/15 shadow-sm transition-all items-center"
             >
               {/* Left Media Thumbnail */}
-              <div className="lg:col-span-5 relative aspect-[16/10] rounded-2xl overflow-hidden bg-white border-2 border-[#0A1128]">
+              <div className="lg:col-span-5 relative aspect-[16/10] rounded-2xl overflow-hidden bg-white border border-[#0A1128]/15">
                 <img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover object-center scale-100 hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/60 via-transparent to-transparent" />
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border-2 border-[#0A1128] text-[#0A1128] font-mono text-xs font-black shadow-md">
+                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-[#0A1128] font-mono text-xs font-black shadow-sm">
                   SPEC {service.number}
                 </div>
               </div>
@@ -54,7 +61,7 @@ export const Services = () => {
                 </div>
 
                 {/* Capabilities grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-4 border-t-2 border-[#0A1128]/15">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-4 border-t border-[#0A1128]/10">
                   {service.capabilities.map((cap, i) => (
                     <div key={i} className="flex items-center gap-2 text-xs text-[#0A1128] font-sans font-bold">
                       <CheckCircle2 size={16} className="text-[#0A1128] flex-shrink-0" />
@@ -65,7 +72,7 @@ export const Services = () => {
 
                 {/* Camera / Rig standard */}
                 {service.gear && (
-                  <div className="p-3.5 rounded-2xl bg-white border-2 border-[#0A1128] flex items-center gap-2.5 text-xs font-mono text-[#0A1128] font-bold">
+                  <div className="p-3.5 rounded-2xl bg-white border border-[#0A1128]/15 flex items-center gap-2.5 text-xs font-mono text-[#0A1128] font-bold">
                     <Camera size={16} className="text-[#0A1128] flex-shrink-0" />
                     <span>Rig Standard: <strong className="text-[#0A1128] font-black">{service.gear}</strong></span>
                   </div>
@@ -93,7 +100,7 @@ export const Services = () => {
             {productionProcess.map((step, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-3xl bg-white text-[#0A1128] border-2 border-[#0A1128] flex flex-col justify-between hover:shadow-xl transition-all duration-300 shadow-md"
+                className="p-8 rounded-3xl bg-white text-[#0A1128] border border-[#0A1128]/15 flex flex-col justify-between hover:shadow-xl transition-all duration-300 shadow-sm"
               >
                 <div>
                   <span className="font-serif text-4xl sm:text-5xl font-black text-[#0A1128] block mb-4">

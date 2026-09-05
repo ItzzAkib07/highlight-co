@@ -51,9 +51,9 @@ export const MagneticButton = ({
   };
 
   const variantClasses = {
-    primary: "bg-[#F5C400] text-[#060B1A] font-heading font-black border-2 border-[#0A1128] shadow-lg shadow-[#F5C400]/30 hover:bg-[#FFE042]",
-    secondary: "bg-white text-[#0A1128] hover:bg-slate-100 border-2 border-[#0A1128] font-heading font-black shadow-sm",
-    outline: "border-2 border-[#0A1128] text-[#0A1128] bg-white hover:bg-[#F5C400] hover:text-[#060B1A] font-heading font-black transition-all shadow-sm",
+    primary: "bg-[#F5C400] text-[#060B1A] font-heading font-black border border-[#0A1128]/20 shadow-md shadow-[#F5C400]/25 hover:bg-[#FFE042]",
+    secondary: "bg-white text-[#0A1128] hover:bg-slate-50 border border-[#0A1128]/15 font-heading font-black shadow-sm",
+    outline: "border border-[#0A1128]/20 text-[#0A1128] bg-white hover:bg-[#F5C400] hover:text-[#060B1A] hover:border-[#F5C400] font-heading font-black transition-all shadow-sm",
     ghost: "text-[#0A1128] hover:text-[#060B1A] hover:bg-[#F5C400]/20 font-heading font-black"
   };
 

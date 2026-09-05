@@ -119,18 +119,22 @@ export const HorizontalReel = () => {
   return (
     <section
       ref={sectionRef}
-      className={`relative bg-white border-y-2 border-[#0A1128]/20 overflow-hidden select-none text-[#0A1128] ${
+      className={`relative bg-white border-y border-[#0A1128]/10 overflow-hidden select-none text-[#0A1128] ${
         isMobile ? 'py-16' : 'h-screen min-h-[680px] max-h-[1080px] flex flex-col justify-between'
       }`}
     >
-      {/* Ambient subtle background glow */}
-      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[600px] h-[600px] bg-[#F5C400]/10 rounded-full blur-[160px] pointer-events-none" />
+      {/* Ambient dynamic cinematic background lighting */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#F5C400]/15 via-amber-300/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
+        <div className="absolute top-1/3 -right-20 w-[650px] h-[650px] bg-gradient-to-bl from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
+        <div className="absolute inset-0 bg-cinema-grid opacity-40" />
+      </div>
 
       {/* 1. Pinned Top Navigation Bar & Progress Indicator */}
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-20 sm:pt-24 md:pt-24 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         {/* Header Tag */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-[#F5C400]/20 border-2 border-[#0A1128] flex items-center justify-center text-[#0A1128] shadow-sm">
+          <div className="w-8 h-8 rounded-lg bg-[#F5C400]/20 border border-[#0A1128]/15 flex items-center justify-center text-[#0A1128] shadow-sm">
             <Film size={16} />
           </div>
           <div>
@@ -149,7 +153,7 @@ export const HorizontalReel = () => {
         {/* Center Pill Switcher & Counter for Desktop */}
         <div className="flex items-center gap-6 self-end sm:self-auto">
           {/* Quick Indicator Pills */}
-          <div className="hidden lg:flex items-center gap-1.5 p-1 rounded-full bg-white border-2 border-[#0A1128] shadow-sm backdrop-blur-md">
+          <div className="hidden lg:flex items-center gap-1.5 p-1 rounded-full bg-white border border-[#0A1128]/15 shadow-sm backdrop-blur-md">
             {reelProjects.map((p, idx) => (
               <button
                 key={p.id}
@@ -175,7 +179,7 @@ export const HorizontalReel = () => {
               disabled={activeIdx === 0}
               onMouseEnter={() => setCursor('hover')}
               onMouseLeave={resetCursor}
-              className={`w-9 h-9 rounded-full border-2 border-[#0A1128] flex items-center justify-center transition-all ${
+              className={`w-9 h-9 rounded-full border border-[#0A1128]/15 flex items-center justify-center transition-all ${
                 activeIdx === 0
                   ? 'text-[#0A1128]/30 cursor-not-allowed opacity-30 bg-white'
                   : 'bg-white text-[#0A1128] hover:bg-[#F5C400] active:scale-95 shadow-sm font-black'
@@ -186,7 +190,7 @@ export const HorizontalReel = () => {
             </button>
 
             {/* Counter display */}
-            <div className="px-3.5 py-1 rounded-full bg-white border-2 border-[#0A1128] font-mono text-xs flex items-center gap-1.5 shadow-sm">
+            <div className="px-3.5 py-1 rounded-full bg-white border border-[#0A1128]/15 font-mono text-xs flex items-center gap-1.5 shadow-sm">
               <span className="text-[#0A1128] font-black text-sm">
                 0{activeIdx + 1}
               </span>
@@ -199,7 +203,7 @@ export const HorizontalReel = () => {
               disabled={activeIdx === reelProjects.length - 1}
               onMouseEnter={() => setCursor('hover')}
               onMouseLeave={resetCursor}
-              className={`w-9 h-9 rounded-full border-2 border-[#0A1128] flex items-center justify-center transition-all ${
+              className={`w-9 h-9 rounded-full border border-[#0A1128]/15 flex items-center justify-center transition-all ${
                 activeIdx === reelProjects.length - 1
                   ? 'text-[#0A1128]/30 cursor-not-allowed opacity-30 bg-white'
                   : 'bg-white text-[#0A1128] hover:bg-[#F5C400] active:scale-95 shadow-sm font-black'
@@ -236,10 +240,10 @@ export const HorizontalReel = () => {
             return (
               <div
                 key={project.id}
-                className={`w-[85vw] sm:w-[520px] md:w-[640px] lg:w-[720px] xl:w-[780px] flex-shrink-0 snap-center group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border-2 transition-all duration-500 ${
+                className={`w-[85vw] sm:w-[520px] md:w-[640px] lg:w-[720px] xl:w-[780px] flex-shrink-0 snap-center group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border transition-all duration-500 ${
                   isActive
-                    ? 'border-[#0A1128] shadow-2xl shadow-[#0A1128]/15 ring-2 ring-[#F5C400]'
-                    : 'border-[#0A1128]/30 hover:border-[#0A1128] shadow-lg shadow-[#0A1128]/5'
+                    ? 'border-[#0A1128]/30 shadow-xl ring-1 ring-[#F5C400]'
+                    : 'border-[#0A1128]/10 hover:border-[#0A1128]/30 shadow-sm'
                 }`}
                 onMouseEnter={() => {
                   setCursor('view', 'VIEW');
@@ -259,10 +263,10 @@ export const HorizontalReel = () => {
 
                   {/* Badges */}
                   <div className="absolute top-4 left-4 sm:top-5 sm:left-5 z-10 flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128] text-[#0A1128] text-[11px] sm:text-xs font-mono font-black uppercase tracking-wider shadow-sm">
+                    <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-[#0A1128] text-[11px] sm:text-xs font-mono font-black uppercase tracking-wider shadow-sm">
                       {project.category}
                     </span>
-                    <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128] text-[#0A1128] text-[11px] sm:text-xs font-mono font-bold shadow-sm">
+                    <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-[#0A1128] text-[11px] sm:text-xs font-mono font-bold shadow-sm">
                       {project.year}
                     </span>
                   </div>
@@ -277,7 +281,7 @@ export const HorizontalReel = () => {
                     }}
                     onMouseEnter={() => setCursor('play', 'PLAY')}
                     onMouseLeave={resetCursor}
-                    className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 z-10 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#F5C400] text-[#060B1A] border-2 border-[#0A1128] flex items-center justify-center shadow-xl shadow-[#F5C400]/40 group-hover:scale-110 transition-transform duration-300"
+                    className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 z-10 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128]/20 flex items-center justify-center shadow-lg shadow-[#F5C400]/40 group-hover:scale-110 transition-transform duration-300"
                     aria-label={`Play preview for ${project.title}`}
                   >
                     <Play size={20} className="ml-1 fill-current" />
@@ -308,7 +312,7 @@ export const HorizontalReel = () => {
                     {project.tagline}
                   </p>
 
-                  <div className="mt-6 pt-4 border-t-2 border-[#0A1128]/10 flex items-center justify-between">
+                  <div className="mt-6 pt-4 border-t border-[#0A1128]/10 flex items-center justify-between">
                     <Link
                       to={`/work/${project.slug}`}
                       onClick={playClickTone}
@@ -330,7 +334,7 @@ export const HorizontalReel = () => {
       </div>
 
       {/* 4. Bottom Runway Status Bar */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-2 pb-6 sm:pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t-2 border-[#0A1128]/20 text-xs font-mono text-[#0A1128]">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 pt-2 pb-6 sm:pb-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#0A1128]/10 text-xs font-mono text-[#0A1128]">
         <div className="flex items-center gap-3">
           <span className="inline-block w-2.5 h-2.5 rounded-full bg-[#F5C400] animate-pulse" />
           <span className="text-[#0A1128] font-bold">

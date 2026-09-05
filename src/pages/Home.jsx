@@ -14,9 +14,6 @@ const AboutManifesto = lazy(() =>
 const ParallaxStory = lazy(() =>
   import('../components/sections/ParallaxStory').then((m) => ({ default: m.ParallaxStory }))
 );
-const ThreeDSection = lazy(() =>
-  import('../components/sections/ThreeDSection').then((m) => ({ default: m.ThreeDSection }))
-);
 const Testimonials = lazy(() =>
   import('../components/sections/Testimonials').then((m) => ({ default: m.Testimonials }))
 );
@@ -66,12 +63,7 @@ export const Home = () => {
         <ParallaxStory />
       </Suspense>
 
-      {/* 8. 3D Optical Precision Experience */}
-      <Suspense fallback={<SectionLoader />}>
-        <ThreeDSection />
-      </Suspense>
-
-      {/* 9. Testimonials & Client Reviews */}
+      {/* 8. Testimonials & Client Reviews */}
       <Suspense fallback={<SectionLoader />}>
         <Testimonials />
       </Suspense>

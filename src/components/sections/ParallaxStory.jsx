@@ -65,9 +65,9 @@ export const ParallaxStory = () => {
       {/* Foreground Content Card */}
       <div
         ref={textRef}
-        className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center bg-white/95 backdrop-blur-2xl p-8 sm:p-12 md:p-16 rounded-3xl border-2 border-[#0A1128] shadow-2xl text-[#0A1128]"
+        className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center bg-white/95 backdrop-blur-2xl p-8 sm:p-12 md:p-16 rounded-3xl border border-[#0A1128]/15 shadow-2xl text-[#0A1128]"
       >
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5C400]/20 border-2 border-[#0A1128] text-[#0A1128] text-xs font-mono font-black tracking-widest uppercase mb-6">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5C400]/20 border border-[#0A1128]/15 text-[#0A1128] text-xs font-mono font-black tracking-widest uppercase mb-6">
           <Film size={14} className="text-[#0A1128]" />
           <span>CINEMATIC CASE STUDY // CSR SPOTLIGHT</span>
         </div>

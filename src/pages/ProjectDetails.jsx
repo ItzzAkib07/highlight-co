@@ -16,9 +16,18 @@ export const ProjectDetails = () => {
   const { setCursor, resetCursor } = useCursor();
 
   return (
-    <div className="relative w-full bg-white min-h-screen pt-28 pb-20 select-none">
+    <div className="relative w-full bg-white min-h-screen pt-28 pb-20 select-none overflow-hidden">
+      {/* Dynamic Animated Ambient Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 bg-cinema-grid opacity-35" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-20" />
+        <div className="absolute -top-32 right-10 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#F5C400]/15 via-[#F5C400]/5 to-transparent blur-[160px] animate-float-slow" />
+        <div className="absolute top-[40%] -left-32 w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-[#0A1128]/10 via-[#F5C400]/10 to-transparent blur-[180px] animate-float-reverse" />
+        <div className="absolute bottom-10 right-[15%] w-[550px] h-[550px] rounded-full bg-gradient-to-tl from-[#F5C400]/15 to-transparent blur-[160px] animate-pulse-glow" />
+      </div>
+
       {/* Top Back Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-8">
         <Link
           to="/work"
           onClick={playClickTone}
@@ -32,7 +41,7 @@ export const ProjectDetails = () => {
       {/* Project Hero Header */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-12 text-[#0A1128]">
         <div className="flex flex-wrap items-center gap-3 mb-6">
-          <span className="px-3.5 py-1 rounded-full bg-[#F5C400] border-2 border-[#0A1128] text-[#060B1A] text-xs font-mono font-black uppercase tracking-wider shadow-sm">
+          <span className="px-3.5 py-1 rounded-full bg-[#F5C400] border border-[#0A1128]/20 text-[#060B1A] text-xs font-mono font-black uppercase tracking-wider shadow-sm">
             {project.category}
           </span>
           <span className="text-xs font-mono text-[#0A1128] font-bold">RELEASE: {project.year}</span>
@@ -49,7 +58,7 @@ export const ProjectDetails = () => {
         </p>
 
         {/* Metadata Grid */}
-        <div className="mt-10 pt-6 border-t-2 border-[#0A1128]/20 grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs font-mono">
+        <div className="mt-10 pt-6 border-t border-[#0A1128]/10 grid grid-cols-2 sm:grid-cols-4 gap-6 text-xs font-mono">
           <div>
             <span className="text-[#0A1128]/70 uppercase block mb-1 font-bold">Commissioned By</span>
             <strong className="text-[#0A1128] text-sm font-sans font-black">{project.client}</strong>
@@ -72,7 +81,7 @@ export const ProjectDetails = () => {
       {/* Full-Bleed Hero Cinematic Showcase Image / Video Trigger */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-20">
         <div
-          className="group relative aspect-[16/9] w-full rounded-3xl overflow-hidden bg-white border-2 border-[#0A1128] shadow-2xl cursor-pointer"
+          className="group relative aspect-[16/9] w-full rounded-3xl overflow-hidden bg-white border border-[#0A1128]/15 shadow-2xl cursor-pointer"
           onClick={() => {
             playClickTone();
             setVideoOpen(true);
@@ -92,12 +101,12 @@ export const ProjectDetails = () => {
 
           {/* Central Play Button */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-20 sm:w-24 h-20 sm:h-24 rounded-full bg-[#F5C400] text-[#060B1A] border-2 border-[#0A1128] flex items-center justify-center shadow-2xl shadow-[#F5C400]/40 group-hover:scale-110 transition-transform duration-300">
+            <div className="w-20 sm:w-24 h-20 sm:h-24 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128]/20 flex items-center justify-center shadow-2xl shadow-[#F5C400]/40 group-hover:scale-110 transition-transform duration-300">
               <Play size={28} className="ml-1 fill-current" />
             </div>
           </div>
 
-          <div className="absolute bottom-6 left-6 z-10 hidden sm:flex items-center gap-2 text-xs font-mono text-[#0A1128] bg-white/95 px-4 py-2 rounded-full backdrop-blur-md border-2 border-[#0A1128] font-bold">
+          <div className="absolute bottom-6 left-6 z-10 hidden sm:flex items-center gap-2 text-xs font-mono text-[#0A1128] bg-white/95 px-4 py-2 rounded-full backdrop-blur-md border border-[#0A1128]/15 font-bold">
             <Film size={14} className="text-[#0A1128]" />
             <span>Click To Experience Full Cinema Master</span>
           </div>
@@ -138,7 +147,7 @@ export const ProjectDetails = () => {
           <div className="lg:col-span-5 space-y-8">
             {/* Impact Metric Card */}
             {project.impactMetrics && (
-              <div className="p-8 rounded-3xl bg-white text-[#0A1128] border-2 border-[#0A1128] shadow-xl space-y-6">
+              <div className="p-8 rounded-3xl bg-white text-[#0A1128] border border-[#0A1128]/15 shadow-xl space-y-6">
                 <span className="text-xs uppercase font-mono tracking-widest text-[#0A1128] font-black block">
                   // MEASURED CULTURAL & BUSINESS IMPACT
                 </span>
@@ -159,7 +168,7 @@ export const ProjectDetails = () => {
 
             {/* Deliverables Card */}
             {project.deliverables && (
-              <div className="p-8 rounded-3xl bg-slate-50 border-2 border-[#0A1128] shadow-md space-y-4">
+              <div className="p-8 rounded-3xl bg-slate-50 border border-[#0A1128]/15 shadow-sm space-y-4">
                 <span className="text-xs uppercase font-mono tracking-widest text-[#0A1128] font-black block">
                   Campaign Deliverables
                 </span>
@@ -191,14 +200,14 @@ export const ProjectDetails = () => {
             {project.detailImages.map((imgUrl, i) => (
               <div
                 key={i}
-                className="group relative aspect-[16/10] rounded-3xl overflow-hidden bg-white border-2 border-[#0A1128] shadow-md"
+                className="group relative aspect-[16/10] rounded-3xl overflow-hidden bg-white border border-[#0A1128]/15 shadow-sm"
               >
                 <img
                   src={imgUrl}
                   alt={`${project.title} Still ${i + 1}`}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute bottom-4 left-4 z-10 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128] text-[10px] font-mono text-[#0A1128] font-black shadow-sm">
+                <div className="absolute bottom-4 left-4 z-10 px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-[10px] font-mono text-[#0A1128] font-black shadow-sm">
                   FRAME 0{i + 1} // 2.39:1 CINEMA CROP
                 </div>
               </div>
@@ -209,7 +218,7 @@ export const ProjectDetails = () => {
 
       {/* Next Project Teaser Banner */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
-        <div className="border-t-2 border-[#0A1128]/20 pt-16">
+        <div className="border-t border-[#0A1128]/10 pt-16">
           <span className="text-xs font-mono uppercase tracking-widest text-[#0A1128] block mb-3 font-black">
             NEXT STORY IN REEL →
           </span>
@@ -217,11 +226,11 @@ export const ProjectDetails = () => {
           <Link
             to={`/work/${nextProject.slug}`}
             onClick={playClickTone}
-            className="group relative block p-8 sm:p-14 rounded-3xl bg-white border-2 border-[#0A1128] text-[#0A1128] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl"
+            className="group relative block p-8 sm:p-14 rounded-3xl bg-white border border-[#0A1128]/15 text-[#0A1128] overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl"
           >
             <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
-                <span className="text-xs font-mono text-[#0A1128] uppercase tracking-widest font-black bg-[#F5C400]/30 px-2.5 py-1 rounded border border-[#0A1128]/30">
+                <span className="text-xs font-mono text-[#0A1128] uppercase tracking-widest font-black bg-[#F5C400]/30 px-2.5 py-1 rounded border border-[#0A1128]/20">
                   [{nextProject.category}] — {nextProject.year}
                 </span>
                 <h3 className="text-3xl sm:text-5xl font-serif font-black text-[#0A1128] group-hover:text-[#D4A100] transition-colors mt-3">
@@ -232,7 +241,7 @@ export const ProjectDetails = () => {
                 </p>
               </div>
 
-              <div className="w-14 h-14 rounded-full bg-[#F5C400] text-[#060B1A] border-2 border-[#0A1128] flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0 shadow-lg shadow-[#F5C400]/30">
+              <div className="w-14 h-14 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128]/20 flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0 shadow-lg shadow-[#F5C400]/30">
                 <ArrowUpRight size={24} />
               </div>
             </div>

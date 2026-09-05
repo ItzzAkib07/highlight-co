@@ -5,7 +5,7 @@ import { Sliders, Camera, Sparkles, Layers } from 'lucide-react';
 
 export const ThreeDSection = () => {
   return (
-    <section className="relative py-24 sm:py-32 px-6 sm:px-8 md:px-12 bg-white border-y-2 border-[#0A1128]/20 overflow-hidden text-[#0A1128]">
+    <section className="relative py-24 sm:py-32 px-6 sm:px-8 md:px-12 bg-white border-y border-[#0A1128]/10 overflow-hidden text-[#0A1128]">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Context & Optics Details */}
@@ -20,8 +20,8 @@ export const ThreeDSection = () => {
             />
 
             <div className="space-y-4">
-              <div className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border-2 border-[#0A1128] shadow-md hover:border-[#D4A100] transition-all">
-                <div className="p-3 rounded-xl bg-[#F5C400]/20 border border-[#0A1128] text-[#0A1128] flex-shrink-0">
+              <div className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-[#0A1128]/15 shadow-sm hover:border-[#0A1128]/30 transition-all">
+                <div className="p-3 rounded-xl bg-[#F5C400]/20 border border-[#0A1128]/15 text-[#0A1128] flex-shrink-0">
                   <Camera size={22} className="text-[#0A1128]" />
                 </div>
                 <div>
@@ -32,8 +32,8 @@ export const ThreeDSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border-2 border-[#0A1128] shadow-md hover:border-[#D4A100] transition-all">
-                <div className="p-3 rounded-xl bg-[#F5C400]/20 border border-[#0A1128] text-[#0A1128] flex-shrink-0">
+              <div className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 border border-[#0A1128]/15 shadow-sm hover:border-[#0A1128]/30 transition-all">
+                <div className="p-3 rounded-xl bg-[#F5C400]/20 border border-[#0A1128]/15 text-[#0A1128] flex-shrink-0">
                   <Layers size={22} className="text-[#0A1128]" />
                 </div>
                 <div>
@@ -48,7 +48,7 @@ export const ThreeDSection = () => {
 
           {/* Right Column: Interactive 3D Canvas */}
           <div className="lg:col-span-6">
-            <div className="rounded-3xl bg-slate-50 p-2 border-2 border-[#0A1128] shadow-2xl overflow-hidden">
+            <div className="rounded-3xl bg-slate-50 p-2 border border-[#0A1128]/15 shadow-xl overflow-hidden">
               <InteractivePrism />
             </div>
           </div>

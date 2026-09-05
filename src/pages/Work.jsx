@@ -25,8 +25,15 @@ export const Work = () => {
   };
 
   return (
-    <div className="relative w-full bg-white min-h-screen pt-32 pb-16">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
+    <div className="relative w-full bg-white min-h-screen pt-32 pb-16 overflow-hidden select-none">
+      {/* Dynamic Background Atmosphere */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-32 left-1/3 w-[800px] h-[800px] bg-gradient-to-b from-[#F5C400]/15 via-amber-200/10 to-transparent rounded-full blur-[180px] animate-float-slow pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-gradient-to-tl from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
+        <div className="absolute inset-0 bg-cinema-grid opacity-35" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 relative z-10">
         {/* Page Hero Header */}
         <div className="mb-14">
           <SectionHeader
@@ -66,7 +73,7 @@ export const Work = () => {
         </div>
 
         {filteredProjects.length === 0 && (
-          <div className="py-20 text-center bg-white rounded-3xl border-2 border-[#0A1128] text-[#0A1128] shadow-md">
+          <div className="py-20 text-center bg-white rounded-3xl border border-[#0A1128]/15 text-[#0A1128] shadow-sm">
             <Clapperboard size={36} className="text-[#0A1128] mx-auto mb-3" />
             <h4 className="text-xl font-serif font-black text-[#0A1128]">No films matching this category</h4>
             <p className="text-xs text-[#0A1128] font-medium mt-1">Please select another category or view all productions.</p>

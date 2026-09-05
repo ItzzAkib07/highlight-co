@@ -17,7 +17,7 @@ export const ProjectCard = ({ project, layout = "standard", index = 0 }) => {
   return (
     <>
       <div
-        className={`group relative flex flex-col rounded-3xl overflow-hidden bg-white border-2 border-[#0A1128] shadow-md hover:shadow-2xl transition-all duration-500 ${
+        className={`group relative flex flex-col rounded-3xl overflow-hidden bg-white border border-[#0A1128]/15 shadow-sm hover:shadow-xl transition-all duration-500 ${
           isLarge ? 'md:col-span-2' : ''
         }`}
         onMouseEnter={() => {
@@ -46,10 +46,10 @@ export const ProjectCard = ({ project, layout = "standard", index = 0 }) => {
 
           {/* Category & Year Badges */}
           <div className="absolute top-4 sm:top-6 left-4 sm:left-6 z-10 flex items-center gap-2">
-            <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128] text-[#0A1128] text-[10px] sm:text-xs font-mono font-black uppercase tracking-wider shadow-sm">
+            <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-[#0A1128] text-[10px] sm:text-xs font-mono font-black uppercase tracking-wider shadow-sm">
               {project.category}
             </span>
-            <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128] text-[#0A1128] text-[10px] sm:text-xs font-mono font-bold shadow-sm">
+            <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-[#0A1128] text-[10px] sm:text-xs font-mono font-bold shadow-sm">
               {project.year}
             </span>
           </div>
@@ -62,7 +62,7 @@ export const ProjectCard = ({ project, layout = "standard", index = 0 }) => {
               playClickTone();
               setIsVideoModalOpen(true);
             }}
-            className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 z-10 w-12 h-12 rounded-full bg-[#F5C400] text-[#060B1A] border-2 border-[#0A1128] flex items-center justify-center shadow-lg shadow-[#F5C400]/40 opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+            className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 z-10 w-12 h-12 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128]/20 flex items-center justify-center shadow-lg shadow-[#F5C400]/40 opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
             aria-label="Play project video preview"
           >
             <Play size={18} className="ml-0.5 fill-current" />
@@ -93,7 +93,7 @@ export const ProjectCard = ({ project, layout = "standard", index = 0 }) => {
           </div>
 
           {/* View Details Link */}
-          <div className="mt-6 pt-4 border-t-2 border-[#0A1128]/15 flex items-center justify-between">
+          <div className="mt-6 pt-4 border-t border-[#0A1128]/10 flex items-center justify-between">
             <Link
               to={`/work/${project.slug}`}
               onClick={playClickTone}

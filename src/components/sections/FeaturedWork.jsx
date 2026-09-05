@@ -388,9 +388,18 @@ export const FeaturedWork = () => {
       }}
       className="relative w-full h-screen min-h-[700px] max-h-[1080px] bg-white flex flex-col justify-between overflow-hidden select-none px-4 sm:px-6 md:px-8 lg:px-12 py-4 sm:py-6 text-brand-navy"
     >
-      {/* Background Ambient Studio Glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[650px] h-[650px] bg-brand-yellow/10 rounded-full blur-[180px] pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-amber-400/5 rounded-full blur-[160px] pointer-events-none" />
+      {/* Background Ambient Studio Lighting & Grid Textures */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* Ambient Warm Golden & Cool Studio Flares */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#F5C400]/15 via-amber-300/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
+        <div className="absolute top-1/3 right-10 w-[600px] h-[600px] bg-gradient-to-bl from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
+        
+        {/* Subtle Cinema Blueprint Dot Grid */}
+        <div className="absolute inset-0 bg-cinema-grid opacity-50" />
+        
+        {/* Soft Stage Spotlight Cones from Top */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-[#F5C400]/10 via-amber-200/5 to-transparent blur-3xl pointer-events-none" />
+      </div>
 
       {/* Thin Top Section Progress Line */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-slate-200 z-30">
@@ -407,7 +416,7 @@ export const FeaturedWork = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pt-2 sm:pt-4">
           <div>
             <div className="flex items-center gap-2 mb-1.5">
-              <span className="px-3 py-1 rounded-full bg-white border-2 border-[#0A1128] text-[#0A1128] font-mono text-[11px] font-black tracking-wider shadow-sm">
+              <span className="px-3 py-1 rounded-full bg-white border border-[#0A1128]/15 text-[#0A1128] font-mono text-[11px] font-black tracking-wider shadow-sm">
                 01 // SELECTED WORKS
               </span>
               <span className="text-[#0A1128] font-mono text-xs font-bold hidden sm:inline">
@@ -426,7 +435,7 @@ export const FeaturedWork = () => {
           {/* Interactive Navigation Controls */}
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 self-start md:self-end">
             {/* Project Quick Jump Pills */}
-            <div className="flex items-center gap-1.5 p-1 rounded-full bg-white border-2 border-[#0A1128] shadow-sm backdrop-blur-xl">
+            <div className="flex items-center gap-1.5 p-1 rounded-full bg-white border border-[#0A1128]/15 shadow-sm backdrop-blur-xl">
               {projectsData.map((project, idx) => (
                 <button
                   key={project.id}
@@ -435,7 +444,7 @@ export const FeaturedWork = () => {
                   onMouseLeave={resetCursor}
                   className={`px-3 py-1 rounded-full text-xs font-mono transition-all duration-300 ${
                     activeProjectIdx === idx
-                      ? 'bg-[#F5C400] text-[#060B1A] font-black shadow-md shadow-[#F5C400]/30 scale-105 border border-[#0A1128]'
+                      ? 'bg-[#F5C400] text-[#060B1A] font-black shadow-md shadow-[#F5C400]/30 scale-105 border border-[#0A1128]/15'
                       : 'text-[#0A1128] hover:bg-[#F5C400]/20 font-bold'
                   }`}
                   title={`Jump to film 0${idx + 1}: ${project.title}`}
@@ -452,7 +461,7 @@ export const FeaturedWork = () => {
                 disabled={activeProjectIdx === 0}
                 onMouseEnter={() => setCursor('hover')}
                 onMouseLeave={resetCursor}
-                className="w-10 h-10 rounded-full border-2 border-[#0A1128] bg-white hover:bg-[#F5C400] text-[#0A1128] disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center transition-all shadow-sm active:scale-95 font-bold"
+                className="w-10 h-10 rounded-full border border-[#0A1128]/15 bg-white hover:bg-[#F5C400] text-[#0A1128] disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center transition-all shadow-sm active:scale-95 font-bold"
                 aria-label="Previous film"
               >
                 <ChevronLeft size={18} strokeWidth={2.5} />
@@ -463,7 +472,7 @@ export const FeaturedWork = () => {
                 disabled={activeProjectIdx === cardCount - 1}
                 onMouseEnter={() => setCursor('hover')}
                 onMouseLeave={resetCursor}
-                className="w-10 h-10 rounded-full border-2 border-[#0A1128] bg-white hover:bg-[#F5C400] text-[#0A1128] disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center transition-all shadow-sm active:scale-95 font-bold"
+                className="w-10 h-10 rounded-full border border-[#0A1128]/15 bg-white hover:bg-[#F5C400] text-[#0A1128] disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center transition-all shadow-sm active:scale-95 font-bold"
                 aria-label="Next film"
               >
                 <ChevronRight size={18} strokeWidth={2.5} />
@@ -476,7 +485,7 @@ export const FeaturedWork = () => {
         {/* 2. 3D INTERACTIVE VOLUMETRIC CYLINDER STAGE               */}
         {/* ========================================================= */}
         <div
-          className="relative w-full flex-1 my-2 flex items-center justify-center overflow-hidden rounded-3xl border-2 border-[#0A1128] bg-slate-100 shadow-2xl backdrop-blur-xl cursor-grab active:cursor-grabbing"
+          className="relative w-full flex-1 my-2 flex items-center justify-center overflow-hidden rounded-3xl border border-[#0A1128]/15 bg-slate-100 shadow-2xl backdrop-blur-xl cursor-grab active:cursor-grabbing"
           style={{ minHeight: `${metrics.stageHeight}px` }}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMoveDrag}
@@ -523,7 +532,7 @@ export const FeaturedWork = () => {
                       return (
                         <div
                           key={layerIdx}
-                          className="absolute inset-0 rounded-2xl sm:rounded-3xl border border-[#0A1128]/30 bg-[#CBD5E1] pointer-events-none"
+                          className="absolute inset-0 rounded-2xl sm:rounded-3xl border border-[#0A1128]/15 bg-[#CBD5E1] pointer-events-none"
                           style={{
                             transform: `translateZ(${zOffset}px)`,
                           }}
@@ -538,7 +547,7 @@ export const FeaturedWork = () => {
                       return (
                         <div
                           key={layerIdx}
-                          className="absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-[#0A1128] bg-white overflow-hidden shadow-[0_20px_50px_rgba(10,17,40,0.3)] pointer-events-auto group/card"
+                          className="absolute inset-0 rounded-2xl sm:rounded-3xl border border-[#0A1128]/15 bg-white overflow-hidden shadow-[0_20px_50px_rgba(10,17,40,0.3)] pointer-events-auto group/card"
                           style={{
                             transform: `translateZ(${zOffset}px)`,
                             backfaceVisibility: 'hidden',
@@ -559,15 +568,15 @@ export const FeaturedWork = () => {
                             {/* Top Badges & Timecode Pill */}
                             <div className="absolute top-3.5 sm:top-4 left-4 sm:left-5 right-4 sm:right-5 z-20 flex items-center justify-between">
                               <div className="flex items-center gap-2">
-                                <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128] text-[#0A1128] text-[10px] sm:text-xs font-mono font-black uppercase tracking-wider shadow-sm">
+                                <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-[#0A1128] text-[10px] sm:text-xs font-mono font-black uppercase tracking-wider shadow-sm">
                                   {project.category}
                                 </span>
-                                <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128] text-[#0A1128] text-[10px] sm:text-xs font-mono font-bold shadow-sm">
+                                <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-[#0A1128] text-[10px] sm:text-xs font-mono font-bold shadow-sm">
                                   {project.year}
                                 </span>
                               </div>
 
-                              <div className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128] text-[#0A1128] font-mono text-[10px] font-bold shadow-sm">
+                              <div className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-[#0A1128]/15 text-[#0A1128] font-mono text-[10px] font-bold shadow-sm">
                                 {project.duration}
                               </div>
                             </div>
@@ -585,14 +594,14 @@ export const FeaturedWork = () => {
                                 playWhoosh();
                               }}
                               onMouseLeave={resetCursor}
-                              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#F5C400] text-[#060B1A] border-2 border-[#0A1128] flex items-center justify-center shadow-2xl shadow-[#F5C400]/50 group-hover/card:scale-110 transition-transform duration-300 active:scale-95"
+                              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128]/15 flex items-center justify-center shadow-2xl shadow-[#F5C400]/50 group-hover/card:scale-110 transition-transform duration-300 active:scale-95"
                               aria-label={`Play preview for ${project.title}`}
                             >
                               <Play size={20} className="ml-1 fill-current" />
                             </button>
 
                             {/* Bottom Card Content Info Strip */}
-                            <div className="absolute bottom-0 inset-x-0 z-20 p-4 sm:p-5 flex flex-col justify-end bg-white/95 backdrop-blur-md border-t-2 border-[#0A1128] text-[#0A1128] shadow-lg">
+                            <div className="absolute bottom-0 inset-x-0 z-20 p-4 sm:p-5 flex flex-col justify-end bg-white/95 backdrop-blur-md border-t border-[#0A1128]/15 text-[#0A1128] shadow-lg">
                               <div className="text-[10px] font-mono text-[#0A1128] mb-0.5 font-bold">
                                 CLIENT: <strong className="text-[#0A1128] font-black">{project.client}</strong>
                               </div>
@@ -611,7 +620,7 @@ export const FeaturedWork = () => {
                                 {project.tagline}
                               </p>
 
-                              <div className="mt-2.5 pt-2.5 border-t-2 border-[#0A1128]/15 flex items-center justify-between">
+                              <div className="mt-2.5 pt-2.5 border-t border-[#0A1128]/15 flex items-center justify-between">
                                 <Link
                                   to={`/work/${project.slug}`}
                                   onClick={playClickTone}
@@ -638,14 +647,14 @@ export const FeaturedWork = () => {
                       return (
                         <div
                           key={layerIdx}
-                          className="absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-[#0A1128] bg-white overflow-hidden shadow-[0_20px_50px_rgba(10,17,40,0.3)] pointer-events-auto p-4 sm:p-5 flex flex-col justify-between text-[#0A1128]"
+                          className="absolute inset-0 rounded-2xl sm:rounded-3xl border border-[#0A1128]/15 bg-white overflow-hidden shadow-[0_20px_50px_rgba(10,17,40,0.3)] pointer-events-auto p-4 sm:p-5 flex flex-col justify-between text-[#0A1128]"
                           style={{
                             transform: `translateZ(${zOffset}px) rotateX(180deg)`,
                             backfaceVisibility: 'hidden',
                           }}
                         >
                           {/* Top Slate Film Header */}
-                          <div className="relative z-10 flex items-center justify-between border-b-2 border-[#0A1128]/15 pb-2">
+                          <div className="relative z-10 flex items-center justify-between border-b border-[#0A1128]/15 pb-2">
                             <div className="flex items-center gap-2">
                               <Film size={13} className="text-[#0A1128]" />
                               <span className="text-[10px] font-mono uppercase tracking-widest text-[#0A1128] font-black">
@@ -668,7 +677,7 @@ export const FeaturedWork = () => {
 
                             {/* Impact Metric Strip */}
                             {project.impactMetrics && project.impactMetrics.length > 0 && (
-                              <div className="mt-2.5 grid grid-cols-3 gap-2 pt-2 border-t-2 border-[#0A1128]/15">
+                              <div className="mt-2.5 grid grid-cols-3 gap-2 pt-2 border-t border-[#0A1128]/15">
                                 {project.impactMetrics.slice(0, 3).map((metric, mIdx) => (
                                   <div key={mIdx} className="text-left">
                                     <div className="font-serif text-xs sm:text-sm font-black text-[#0A1128]">
@@ -684,14 +693,14 @@ export const FeaturedWork = () => {
                           </div>
 
                           {/* Bottom Action */}
-                          <div className="relative z-10 pt-2 border-t-2 border-[#0A1128]/15 flex items-center justify-between">
+                          <div className="relative z-10 pt-2 border-t border-[#0A1128]/15 flex items-center justify-between">
                             <span className="text-[10px] font-mono text-[#0A1128] font-bold">
                               DIRECTOR: <strong className="text-[#0A1128] font-black">{project.credits?.director || 'Aarav Mehta'}</strong>
                             </span>
                             <Link
                               to={`/work/${project.slug}`}
                               onClick={playClickTone}
-                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128] text-[10px] font-heading font-black uppercase tracking-wider shadow-md hover:scale-105 transition-transform"
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128]/15 text-[10px] font-heading font-black uppercase tracking-wider shadow-md hover:scale-105 transition-transform"
                             >
                               <span>Case Study</span>
                               <ArrowUpRight size={12} />
@@ -710,14 +719,14 @@ export const FeaturedWork = () => {
 
           {/* Bottom Viewport Interactive Cue */}
           <div className="absolute bottom-3 inset-x-0 z-20 px-6 flex items-center justify-between text-xs font-mono text-[#0A1128] pointer-events-none">
-            <div className="flex items-center gap-2 bg-white/95 px-3 py-1 rounded-full border border-[#0A1128] shadow-sm">
+            <div className="flex items-center gap-2 bg-white/95 px-3 py-1 rounded-full border border-[#0A1128]/15 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#F5C400] animate-pulse" />
               <span>
                 CURRENT FILM: <strong className="text-[#0A1128] font-heading font-black">{projectsData[activeProjectIdx]?.title}</strong>
               </span>
             </div>
 
-            <div className="hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-widest text-[#0A1128] bg-white/95 px-3.5 py-1.5 rounded-full border border-[#0A1128] shadow-sm backdrop-blur-md font-bold">
+            <div className="hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-widest text-[#0A1128] bg-white/95 px-3.5 py-1.5 rounded-full border border-[#0A1128]/15 shadow-sm backdrop-blur-md font-bold">
               <Sparkles size={11} className="text-[#0A1128]" />
               <span>
                 {activeProjectIdx === 0 && 'SCROLL DOWN TO EXPLORE FILMS ↓'}
@@ -731,7 +740,7 @@ export const FeaturedWork = () => {
         {/* ========================================================= */}
         {/* 3. BOTTOM RUNWAY STATUS & DIRECTIONAL SCROLL INDICATOR    */}
         {/* ========================================================= */}
-        <div className="flex items-center justify-between pt-2 pb-1 text-xs font-mono text-[#0A1128] border-t-2 border-[#0A1128]/20">
+        <div className="flex items-center justify-between pt-2 pb-1 text-xs font-mono text-[#0A1128] border-t border-[#0A1128]/15">
           <div className="flex items-center gap-4">
             <span className="text-[#0A1128] font-black">
               0{activeProjectIdx + 1} / 0{cardCount}

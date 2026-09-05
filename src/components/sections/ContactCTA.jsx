@@ -4,12 +4,16 @@ import { ArrowUpRight, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
 
 export const ContactCTA = () => {
   return (
-    <section className="relative py-28 sm:py-36 px-6 sm:px-8 md:px-12 bg-white overflow-hidden select-none border-t-2 border-[#0A1128] text-[#0A1128]">
-      {/* Dynamic Gold Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#F5C400]/10 rounded-full blur-[180px] pointer-events-none" />
+    <section className="relative py-28 sm:py-36 px-6 sm:px-8 md:px-12 bg-white overflow-hidden select-none border-t border-[#0A1128]/10 text-[#0A1128]">
+      {/* Dynamic Golden Spotlight & Ambient Particles */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[600px] bg-gradient-to-tr from-[#F5C400]/20 via-[#FFE042]/12 to-transparent rounded-full blur-[180px] animate-pulse-glow pointer-events-none" />
+        <div className="absolute -bottom-20 right-10 w-[500px] h-[500px] bg-amber-300/10 rounded-full blur-[160px] animate-float-slow pointer-events-none" />
+        <div className="absolute inset-0 bg-cinema-grid opacity-40" />
+      </div>
 
       <div className="max-w-5xl mx-auto text-center relative z-10">
-        <span className="text-xs uppercase font-mono tracking-widest text-[#0A1128] font-black mb-4 inline-block px-4 py-1.5 rounded-full bg-[#F5C400]/20 border-2 border-[#0A1128]">
+        <span className="text-xs uppercase font-mono tracking-widest text-[#0A1128] font-black mb-4 inline-block px-4 py-1.5 rounded-full bg-[#F5C400]/20 border border-[#0A1128]/15">
           // INITIATE NEXT PROJECT
         </span>
 
@@ -35,7 +39,7 @@ export const ContactCTA = () => {
 
           <a
             href="mailto:hello@highlightco.in"
-            className="px-8 py-4 rounded-full border-2 border-[#0A1128] bg-white hover:bg-[#F5C400] transition-all duration-300 text-[#0A1128] text-sm font-heading font-black tracking-wider uppercase flex items-center gap-2 shadow-sm"
+            className="px-8 py-4 rounded-full border border-[#0A1128]/15 bg-white hover:bg-[#F5C400] transition-all duration-300 text-[#0A1128] text-sm font-heading font-black tracking-wider uppercase flex items-center gap-2 shadow-sm"
           >
             <Mail size={16} className="text-[#0A1128]" />
             <span>hello@highlightco.in</span>

@@ -87,7 +87,7 @@ export const ContactForm = () => {
   ];
 
   return (
-    <div className="relative bg-white p-8 sm:p-12 md:p-14 rounded-3xl border-2 border-[#0A1128] shadow-xl text-[#0A1128]">
+    <div className="relative bg-white p-8 sm:p-12 md:p-14 rounded-3xl border border-[#0A1128]/15 shadow-xl text-[#0A1128]">
       {/* Glow header badge */}
       <div className="flex items-center gap-2 text-xs font-mono text-[#0A1128] font-black uppercase tracking-widest mb-6">
         <Sparkles size={14} className="text-[#0A1128]" />
@@ -96,7 +96,7 @@ export const ContactForm = () => {
 
       {status.type === 'success' ? (
         <div className="py-12 flex flex-col items-center text-center space-y-4 animate-fade-in">
-          <div className="w-16 h-16 rounded-full bg-[#F5C400]/30 border-2 border-[#0A1128] flex items-center justify-center text-[#0A1128] mb-2">
+          <div className="w-16 h-16 rounded-full bg-[#F5C400]/30 border border-[#0A1128]/20 flex items-center justify-center text-[#0A1128] mb-2">
             <CheckCircle2 size={32} className="text-[#0A1128]" />
           </div>
           <h3 className="text-3xl font-serif font-black text-[#0A1128]">
@@ -107,7 +107,7 @@ export const ContactForm = () => {
           </p>
           <button
             onClick={() => setStatus({ type: '', message: '' })}
-            className="mt-6 px-6 py-2.5 rounded-full bg-[#F5C400] text-[#060B1A] border-2 border-[#0A1128] hover:bg-[#FFE042] transition-all text-xs font-heading font-black uppercase tracking-widest shadow-md"
+            className="mt-6 px-6 py-2.5 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128]/20 hover:bg-[#FFE042] transition-all text-xs font-heading font-black uppercase tracking-widest shadow-sm"
           >
             Submit Another Inquiry
           </button>
@@ -115,7 +115,7 @@ export const ContactForm = () => {
       ) : (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           {status.type === 'error' && (
-            <div className="p-4 rounded-xl bg-red-500/10 border-2 border-red-500/30 flex items-center gap-3 text-red-600 text-xs font-sans font-bold">
+            <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center gap-3 text-red-600 text-xs font-sans font-bold">
               <AlertCircle size={18} className="flex-shrink-0" />
               <span>{status.message}</span>
             </div>
@@ -131,7 +131,7 @@ export const ContactForm = () => {
                 type="text"
                 placeholder="e.g. Aarav Singhania"
                 {...register('fullName', { required: 'Please provide your full name' })}
-                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-[#0A1128]/25 text-[#0A1128] placeholder-slate-400 focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-semibold"
+                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-[#0A1128]/15 text-[#0A1128] placeholder-slate-400 focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-semibold"
               />
               {errors.fullName && (
                 <span className="text-xs text-red-600 mt-1.5 block font-mono font-bold">
@@ -154,7 +154,7 @@ export const ContactForm = () => {
                     message: 'Invalid email address'
                   }
                 })}
-                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-[#0A1128]/25 text-[#0A1128] placeholder-slate-400 focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-semibold"
+                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-[#0A1128]/15 text-[#0A1128] placeholder-slate-400 focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-semibold"
               />
               {errors.email && (
                 <span className="text-xs text-red-600 mt-1.5 block font-mono font-bold">
@@ -174,7 +174,7 @@ export const ContactForm = () => {
                 type="text"
                 placeholder="e.g. Apex Energy Ltd."
                 {...register('company')}
-                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-[#0A1128]/25 text-[#0A1128] placeholder-slate-400 focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-semibold"
+                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-[#0A1128]/15 text-[#0A1128] placeholder-slate-400 focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-semibold"
               />
             </div>
 
@@ -186,7 +186,7 @@ export const ContactForm = () => {
                 type="tel"
                 placeholder="e.g. +91 98765 43210"
                 {...register('phone')}
-                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-[#0A1128]/25 text-[#0A1128] placeholder-slate-400 focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-semibold"
+                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-[#0A1128]/15 text-[#0A1128] placeholder-slate-400 focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-semibold"
               />
             </div>
           </div>
@@ -200,7 +200,7 @@ export const ContactForm = () => {
               {projectTypes.map((type) => (
                 <label
                   key={type}
-                  className="flex items-center gap-2 p-3 rounded-2xl bg-slate-50 border-2 border-[#0A1128]/25 hover:border-[#0A1128] cursor-pointer transition-all text-xs font-sans text-[#0A1128] font-bold has-[:checked]:bg-[#0A1128] has-[:checked]:border-[#0A1128] has-[:checked]:text-[#F5C400]"
+                  className="flex items-center gap-2 p-3 rounded-2xl bg-slate-50 border border-[#0A1128]/15 hover:border-[#0A1128]/40 cursor-pointer transition-all text-xs font-sans text-[#0A1128] font-bold has-[:checked]:bg-[#0A1128] has-[:checked]:border-[#0A1128] has-[:checked]:text-[#F5C400]"
                 >
                   <input
                     type="radio"
@@ -227,7 +227,7 @@ export const ContactForm = () => {
               </label>
               <select
                 {...register('budget')}
-                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-[#0A1128]/25 text-[#0A1128] focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-bold"
+                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-[#0A1128]/15 text-[#0A1128] focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-bold"
               >
                 <option value="">Select Range</option>
                 {budgetRanges.map((b) => (
@@ -244,7 +244,7 @@ export const ContactForm = () => {
               </label>
               <select
                 {...register('timeline')}
-                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-[#0A1128]/25 text-[#0A1128] focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-bold"
+                className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-[#0A1128]/15 text-[#0A1128] focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-bold"
               >
                 <option value="">Select Timeline</option>
                 {timelines.map((t) => (
@@ -265,7 +265,7 @@ export const ContactForm = () => {
               rows={4}
               placeholder="What story are you looking to tell? Mention key objectives, locations, or reference films..."
               {...register('message', { required: 'Please provide brief details about your project' })}
-              className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border-2 border-[#0A1128]/25 text-[#0A1128] placeholder-slate-400 focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-semibold resize-none"
+              className="w-full px-5 py-3.5 rounded-2xl bg-slate-50 border border-[#0A1128]/15 text-[#0A1128] placeholder-slate-400 focus:outline-none focus:border-[#0A1128] focus:bg-white transition-all text-sm font-sans font-semibold resize-none"
             />
             {errors.message && (
               <span className="text-xs text-red-600 mt-1.5 block font-mono font-bold">
@@ -283,7 +283,7 @@ export const ContactForm = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#F5C400] text-[#060B1A] border-2 border-[#0A1128] font-heading font-black text-sm tracking-widest uppercase hover:bg-[#FFE042] shadow-lg shadow-[#F5C400]/25 disabled:opacity-50 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#F5C400] text-[#060B1A] border border-[#0A1128]/20 font-heading font-black text-sm tracking-widest uppercase hover:bg-[#FFE042] shadow-lg shadow-[#F5C400]/25 disabled:opacity-50 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               {isSubmitting ? (
                 <>

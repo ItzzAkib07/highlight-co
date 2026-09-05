@@ -20,7 +20,7 @@ export const ProjectFilter = ({
   ];
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b-2 border-[#0A1128]/20 select-none">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[#0A1128]/10 select-none">
       {/* Category Pills */}
       <div className="flex items-center gap-2.5 overflow-x-auto w-full md:w-auto no-scrollbar py-2">
         {categories.map((cat) => {
@@ -34,8 +34,8 @@ export const ProjectFilter = ({
               }}
               className={`px-4 py-2 rounded-full text-xs font-heading uppercase tracking-wider transition-all whitespace-nowrap ${
                 isActive
-                  ? 'bg-[#F5C400] text-[#060B1A] border-2 border-[#0A1128] shadow-md shadow-[#F5C400]/30 font-black'
-                  : 'bg-white text-[#0A1128] hover:bg-[#F5C400]/20 border-2 border-[#0A1128] font-black'
+                  ? 'bg-[#F5C400] text-[#060B1A] border border-[#0A1128]/20 shadow-sm font-black'
+                  : 'bg-white text-[#0A1128] hover:bg-[#F5C400]/20 border border-[#0A1128]/15 font-black'
               }`}
             >
               <span>{cat.label}</span>
@@ -51,7 +51,7 @@ export const ProjectFilter = ({
 
       {/* Grid Layout Switcher */}
       {onChangeViewMode && (
-        <div className="hidden sm:flex items-center gap-2 bg-white p-1 rounded-full border-2 border-[#0A1128] shadow-sm">
+        <div className="hidden sm:flex items-center gap-2 bg-white p-1 rounded-full border border-[#0A1128]/15 shadow-sm">
           <button
             onClick={() => {
               playClickTone();

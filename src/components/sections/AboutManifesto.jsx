@@ -36,11 +36,14 @@ export const AboutManifesto = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 sm:py-32 px-6 sm:px-8 md:px-12 bg-white border-t-2 border-[#0A1128]/20 overflow-hidden text-[#0A1128] select-none"
+      className="relative py-24 sm:py-32 px-6 sm:px-8 md:px-12 bg-white border-t border-[#0A1128]/10 overflow-hidden text-[#0A1128] select-none"
     >
-      {/* Background glow & subtle film geometry */}
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[#F5C400]/10 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-amber-400/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* Background dynamic cinema lighting & subtle film geometry */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-20 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#F5C400]/15 via-amber-300/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
+        <div className="absolute bottom-0 -left-20 w-[550px] h-[550px] bg-gradient-to-tr from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[150px] animate-float-reverse pointer-events-none" />
+        <div className="absolute inset-0 bg-cinema-grid opacity-50" />
+      </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -72,7 +75,7 @@ export const AboutManifesto = () => {
                 to="/about"
                 variant="primary"
                 size="md"
-                className="bg-[#F5C400] text-[#060B1A] font-black border-2 border-[#0A1128] shadow-lg shadow-[#F5C400]/30 hover:bg-[#FFE042]"
+                className="bg-[#F5C400] text-[#060B1A] font-black border border-[#0A1128]/20 shadow-lg shadow-[#F5C400]/30 hover:bg-[#FFE042]"
               >
                 <span>The Highlight Method</span>
                 <ArrowUpRight size={16} />
@@ -90,9 +93,9 @@ export const AboutManifesto = () => {
 
           {/* Right Column: Key Tenets & Interactive Matrix */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 sm:p-7 rounded-3xl bg-slate-50 border-2 border-[#0A1128] space-y-3.5 hover:border-[#D4A100] transition-all shadow-md">
+            <div className="p-6 sm:p-7 rounded-3xl bg-slate-50 border border-[#0A1128]/15 space-y-3.5 hover:border-[#0A1128]/30 transition-all shadow-sm">
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-[#F5C400]/20 border-2 border-[#0A1128] flex items-center justify-center text-[#0A1128]">
+                <div className="w-11 h-11 rounded-2xl bg-[#F5C400]/20 border border-[#0A1128]/15 flex items-center justify-center text-[#0A1128]">
                   <Compass size={22} />
                 </div>
                 <div>
@@ -105,9 +108,9 @@ export const AboutManifesto = () => {
               </p>
             </div>
 
-            <div className="p-6 sm:p-7 rounded-3xl bg-slate-50 border-2 border-[#0A1128] space-y-3.5 hover:border-[#D4A100] transition-all shadow-md">
+            <div className="p-6 sm:p-7 rounded-3xl bg-slate-50 border border-[#0A1128]/15 space-y-3.5 hover:border-[#0A1128]/30 transition-all shadow-sm">
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-[#F5C400]/20 border-2 border-[#0A1128] flex items-center justify-center text-[#0A1128]">
+                <div className="w-11 h-11 rounded-2xl bg-[#F5C400]/20 border border-[#0A1128]/15 flex items-center justify-center text-[#0A1128]">
                   <Eye size={22} />
                 </div>
                 <div>
@@ -120,9 +123,9 @@ export const AboutManifesto = () => {
               </p>
             </div>
 
-            <div className="p-6 sm:p-7 rounded-3xl bg-slate-50 border-2 border-[#0A1128] space-y-3.5 hover:border-[#D4A100] transition-all shadow-md">
+            <div className="p-6 sm:p-7 rounded-3xl bg-slate-50 border border-[#0A1128]/15 space-y-3.5 hover:border-[#0A1128]/30 transition-all shadow-sm">
               <div className="flex items-center gap-3.5">
-                <div className="w-11 h-11 rounded-2xl bg-[#F5C400]/20 border-2 border-[#0A1128] flex items-center justify-center text-[#0A1128]">
+                <div className="w-11 h-11 rounded-2xl bg-[#F5C400]/20 border border-[#0A1128]/15 flex items-center justify-center text-[#0A1128]">
                   <Award size={22} />
                 </div>
                 <div>
@@ -138,7 +141,7 @@ export const AboutManifesto = () => {
         </div>
 
         {/* Live Animated Metric Counters */}
-        <div className="mt-20 pt-16 border-t-2 border-[#0A1128]/20 grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="mt-20 pt-16 border-t border-[#0A1128]/10 grid grid-cols-2 md:grid-cols-4 gap-8">
           {studioStats.map((stat, idx) => (
             <div key={idx} className="stat-number flex flex-col">
               <div className="flex items-baseline gap-1">
