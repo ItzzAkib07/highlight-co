@@ -78,28 +78,43 @@ export const HeroSection = () => {
       className="relative min-h-screen w-full flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-hidden bg-white select-none text-brand-navy"
     >
       {/* 1. Ambient Dynamic Cinema Background Image & Lighting Flares */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
         {/* Subtle Cinematic Studio Atmosphere Background Image */}
-        <div className="absolute inset-0 opacity-[0.07] mix-blend-multiply">
+        <div className="absolute inset-0 opacity-[0.16] mix-blend-multiply filter contrast-110">
           <img
             src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2000&q=80"
             alt="Cinema Set Backdrop"
-            className="w-full h-full object-cover object-center filter scale-105"
+            className="w-full h-full object-cover object-center scale-105"
           />
         </div>
 
         {/* Ambient Warm Golden & Cool Navy Mesh Light Flares with Floating Animations */}
-        <div className="absolute -top-20 -left-20 w-[700px] h-[700px] bg-gradient-to-br from-[#F5C400]/20 via-[#FFE042]/10 to-transparent rounded-full blur-[160px] animate-float-slow pointer-events-none" />
-        <div className="absolute top-1/3 -right-20 w-[600px] h-[600px] bg-gradient-to-bl from-amber-300/15 via-[#F5C400]/10 to-transparent rounded-full blur-[150px] animate-float-reverse pointer-events-none" />
-        <div className="absolute -bottom-20 left-1/4 w-[500px] h-[500px] bg-slate-200/60 rounded-full blur-[140px] animate-pulse-glow pointer-events-none" />
+        <div className="absolute -top-10 -left-10 w-[750px] h-[750px] bg-gradient-to-br from-[#F5C400]/40 via-[#FFE042]/20 to-transparent rounded-full blur-[130px] animate-float-slow" />
+        <div className="absolute top-1/3 -right-10 w-[700px] h-[700px] bg-gradient-to-bl from-amber-300/35 via-[#F5C400]/20 to-transparent rounded-full blur-[130px] animate-float-reverse" />
+        <div className="absolute -bottom-10 left-1/4 w-[600px] h-[600px] bg-[#F5C400]/20 rounded-full blur-[120px] animate-pulse-glow" />
 
-        {/* Elegant Cinema Blueprint Dot Grid */}
-        <div className="absolute inset-0 bg-cinema-grid opacity-60" />
-        <div className="absolute inset-0 bg-cinema-lines opacity-40" />
+        {/* Anamorphic Lens Flare Beam Sweep */}
+        <div className="absolute top-1/3 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#F5C400]/80 to-transparent blur-[1px] animate-beam-streak pointer-events-none" />
 
-        {/* Diagonal Soft Light Streak */}
-        <div className="absolute -top-40 left-1/3 w-[2px] h-[1200px] bg-gradient-to-b from-transparent via-[#F5C400]/25 to-transparent rotate-45 transform pointer-events-none" />
-        <div className="absolute -top-60 right-1/4 w-[2px] h-[1200px] bg-gradient-to-b from-transparent via-[#0A1128]/10 to-transparent rotate-45 transform pointer-events-none" />
+        {/* Elegant Cinema Blueprint Dot Grid & Rule of Thirds Viewfinder */}
+        <div className="absolute inset-0 bg-cinema-grid opacity-75" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-45" />
+        <div className="absolute inset-8 sm:inset-12 border border-[#0A1128]/15 rounded-3xl pointer-events-none" />
+
+        {/* Viewfinder Corner Bracket Crosshairs */}
+        <div className="absolute top-8 left-8 w-7 h-7 border-t-2 border-l-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute top-8 right-8 w-7 h-7 border-t-2 border-r-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute bottom-8 left-8 w-7 h-7 border-b-2 border-l-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute bottom-8 right-8 w-7 h-7 border-b-2 border-r-2 border-[#F5C400] opacity-100 shadow-sm" />
+
+        {/* Top/Bottom Cinematic Safe Frame Marks */}
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 flex items-center gap-4 text-[10px] font-mono tracking-[0.3em] uppercase text-[#0A1128]/80 font-black">
+          <span>FRAME 2.39:1</span>
+          <span className="text-[#F5C400]">•</span>
+          <span>ARRI ALEXA MINI LF</span>
+          <span className="text-[#F5C400]">•</span>
+          <span>8K PRORES 4444 XQ</span>
+        </div>
       </div>
 
       {/* 2. Main Hero Content: Two-Column Split Layout */}

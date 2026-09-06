@@ -17,11 +17,27 @@ export const About = () => {
 
   return (
     <div className="relative w-full bg-white min-h-screen pt-32 pb-16 overflow-hidden select-none">
-      {/* Dynamic Background Atmosphere */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 -left-32 w-[700px] h-[700px] bg-gradient-to-br from-[#F5C400]/15 via-amber-200/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
-        <div className="absolute top-1/2 -right-32 w-[650px] h-[650px] bg-gradient-to-bl from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
-        <div className="absolute inset-0 bg-cinema-grid opacity-35" />
+      {/* Dynamic Background Atmosphere & Studio Soundstage Texture */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* Subtle Film Soundstage Texture */}
+        <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply filter contrast-110">
+          <img
+            src="https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=2000&q=80"
+            alt="Studio Production Soundstage"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Ambient Warm Golden & Navy Light Flares */}
+        <div className="absolute -top-32 -left-32 w-[850px] h-[850px] bg-gradient-to-br from-[#F5C400]/35 via-amber-200/20 to-transparent rounded-full blur-[140px] animate-float-slow" />
+        <div className="absolute top-1/2 -right-32 w-[700px] h-[700px] bg-gradient-to-bl from-[#0A1128]/8 via-[#F5C400]/25 to-transparent rounded-full blur-[140px] animate-float-reverse" />
+
+        {/* Viewfinder Corner Crosshairs */}
+        <div className="absolute top-28 left-8 w-6 h-6 border-t-2 border-l-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute top-28 right-8 w-6 h-6 border-t-2 border-r-2 border-[#F5C400] opacity-100 shadow-sm" />
+
+        <div className="absolute inset-0 bg-cinema-grid opacity-60" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-35" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 relative z-10">

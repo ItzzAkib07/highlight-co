@@ -38,11 +38,30 @@ export const AboutManifesto = () => {
       ref={sectionRef}
       className="relative py-24 sm:py-32 px-6 sm:px-8 md:px-12 bg-white border-t border-[#0A1128]/10 overflow-hidden text-[#0A1128] select-none"
     >
-      {/* Background dynamic cinema lighting & subtle film geometry */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-20 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#F5C400]/15 via-amber-300/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
-        <div className="absolute bottom-0 -left-20 w-[550px] h-[550px] bg-gradient-to-tr from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[150px] animate-float-reverse pointer-events-none" />
-        <div className="absolute inset-0 bg-cinema-grid opacity-50" />
+      {/* Background dynamic cinema lighting, storyboard imagery & viewfinder crosshairs */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* Subtle Cinema Studio & Architecture Texture */}
+        <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply filter contrast-110">
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=80"
+            alt="Studio Architecture"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Ambient Warm Golden & Navy Light Flares */}
+        <div className="absolute -top-20 right-0 w-[700px] h-[700px] bg-gradient-to-bl from-[#F5C400]/35 via-amber-300/20 to-transparent rounded-full blur-[140px] animate-float-slow" />
+        <div className="absolute bottom-0 -left-20 w-[600px] h-[600px] bg-gradient-to-tr from-[#0A1128]/8 via-[#F5C400]/25 to-transparent rounded-full blur-[140px] animate-float-reverse" />
+
+        {/* Viewfinder Crosshair & Corner Marks */}
+        <div className="absolute top-10 left-10 w-6 h-6 border-t-2 border-l-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute top-10 right-10 w-6 h-6 border-t-2 border-r-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute bottom-10 left-10 w-6 h-6 border-b-2 border-l-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute bottom-10 right-10 w-6 h-6 border-b-2 border-r-2 border-[#F5C400] opacity-100 shadow-sm" />
+
+        {/* Center Rule-of-Thirds Grid */}
+        <div className="absolute inset-0 bg-cinema-grid opacity-60" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-35" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

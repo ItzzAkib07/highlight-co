@@ -256,37 +256,37 @@
 
 /* Cinematic Mesh & Background Patterns */
 .bg-cinema-grid {
-  background-image: radial-gradient(rgba(10, 17, 40, 0.07) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(10, 17, 40, 0.14) 1.2px, transparent 1.2px);
   background-size: 28px 28px;
 }
 
 .bg-cinema-grid-dense {
-  background-image: radial-gradient(rgba(10, 17, 40, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(10, 17, 40, 0.16) 1.2px, transparent 1.2px);
   background-size: 16px 16px;
 }
 
 .bg-cinema-dots-gold {
-  background-image: radial-gradient(rgba(245, 196, 0, 0.2) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(245, 196, 0, 0.35) 1.5px, transparent 1.5px);
   background-size: 24px 24px;
 }
 
 .bg-cinema-lines {
-  background-image: linear-gradient(0deg, rgba(10, 17, 40, 0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(10, 17, 40, 0.03) 1px, transparent 1px);
-  background-size: 64px 64px;
+  background-image: linear-gradient(0deg, rgba(10, 17, 40, 0.06) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(10, 17, 40, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
 /* Radiant Gold & Navy Gradient Glows */
 .bg-mesh-golden {
-  background: radial-gradient(circle at 10% 20%, rgba(245, 196, 0, 0.12) 0%, transparent 45%),
-              radial-gradient(circle at 90% 80%, rgba(255, 224, 66, 0.1) 0%, transparent 45%),
-              radial-gradient(circle at 50% 50%, rgba(10, 17, 40, 0.02) 0%, transparent 60%);
+  background: radial-gradient(circle at 10% 20%, rgba(245, 196, 0, 0.22) 0%, transparent 50%),
+              radial-gradient(circle at 90% 80%, rgba(255, 224, 66, 0.18) 0%, transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(10, 17, 40, 0.04) 0%, transparent 65%);
 }
 
 .bg-mesh-studio {
-  background: radial-gradient(circle at 80% 10%, rgba(245, 196, 0, 0.1) 0%, transparent 40%),
-              radial-gradient(circle at 20% 90%, rgba(10, 17, 40, 0.04) 0%, transparent 50%),
-              radial-gradient(circle at 50% 30%, rgba(254, 243, 199, 0.4) 0%, transparent 60%);
+  background: radial-gradient(circle at 80% 10%, rgba(245, 196, 0, 0.2) 0%, transparent 45%),
+              radial-gradient(circle at 20% 90%, rgba(10, 17, 40, 0.06) 0%, transparent 55%),
+              radial-gradient(circle at 50% 30%, rgba(254, 243, 199, 0.55) 0%, transparent 65%);
 }
 
 @keyframes highlight-shimmer {
@@ -302,5 +302,99 @@
   background-size: 200% auto;
   animation: highlight-shimmer 4s ease-in-out infinite;
 }
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes film-strip-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes beam-streak {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes focus-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.9;
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 35s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 45s linear infinite;
+}
+
+.animate-film-strip {
+  animation: film-strip-slide 30s linear infinite;
+}
+
+.animate-beam-streak {
+  animation: beam-streak 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-focus-breathe {
+  animation: focus-breathe 6s ease-in-out infinite;
+}
+
+/* 35mm Film Sprocket Pattern */
+.bg-film-sprockets {
+  background-image: 
+    radial-gradient(rgba(10, 17, 40, 0.2) 3px, transparent 3px),
+    radial-gradient(rgba(10, 17, 40, 0.2) 3px, transparent 3px);
+  background-position: 0 4px, 0 calc(100% - 4px);
+  background-size: 20px 20px;
+  background-repeat: repeat-x;
+}
+
+/* Rule of Thirds Viewfinder Overlay */
+.bg-cinema-viewfinder {
+  background-image: 
+    linear-gradient(to right, rgba(10, 17, 40, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 17, 40, 0.04) 1px, transparent 1px);
+  background-size: 33.333% 33.333%;
+}
+
 
 

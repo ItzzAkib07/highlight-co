@@ -8,22 +8,12 @@ export const PageTransition = ({ children }) => {
   const pageRef = useRef(null);
 
   useEffect(() => {
-    if (!pageRef.current) return;
+    // Immediate scroll trigger refresh after route changes
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 50);
 
-    // Use opacity transition and immediately clear props so containing block isn't broken for fixed/pinned elements
-    gsap.fromTo(
-      pageRef.current,
-      { opacity: 0 },
-      {
-        opacity: 1,
-        duration: 0.35,
-        ease: 'power2.out',
-        clearProps: 'all',
-        onComplete: () => {
-          ScrollTrigger.refresh();
-        }
-      }
-    );
+    return () => clearTimeout(timer);
   }, [location.pathname]);
 
   return (

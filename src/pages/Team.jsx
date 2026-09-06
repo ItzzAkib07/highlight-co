@@ -9,11 +9,27 @@ import { Film, Users, Sparkles, ArrowUpRight } from 'lucide-react';
 export const Team = () => {
   return (
     <div className="relative w-full bg-white min-h-screen pt-32 pb-16 overflow-hidden select-none">
-      {/* Dynamic Background Atmosphere */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 left-1/4 w-[700px] h-[700px] bg-gradient-to-br from-[#F5C400]/15 via-amber-200/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
-        <div className="absolute bottom-10 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
-        <div className="absolute inset-0 bg-cinema-grid opacity-35" />
+      {/* Dynamic Background Atmosphere & Film Set Behind-The-Scenes Texture */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* Subtle BTS Camera Crew Texture */}
+        <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply filter contrast-110">
+          <img
+            src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2000&q=80"
+            alt="Film Crew Backdrop"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Ambient Warm Golden & Navy Light Flares */}
+        <div className="absolute -top-32 left-1/4 w-[850px] h-[850px] bg-gradient-to-br from-[#F5C400]/35 via-amber-200/20 to-transparent rounded-full blur-[140px] animate-float-slow" />
+        <div className="absolute bottom-10 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-[#0A1128]/8 via-[#F5C400]/25 to-transparent rounded-full blur-[140px] animate-float-reverse" />
+
+        {/* Viewfinder Corner Crosshairs */}
+        <div className="absolute top-28 left-8 w-6 h-6 border-t-2 border-l-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute top-28 right-8 w-6 h-6 border-t-2 border-r-2 border-[#F5C400] opacity-100 shadow-sm" />
+
+        <div className="absolute inset-0 bg-cinema-grid opacity-60" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-35" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 relative z-10">

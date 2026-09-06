@@ -123,11 +123,30 @@ export const HorizontalReel = () => {
         isMobile ? 'py-16' : 'h-screen min-h-[680px] max-h-[1080px] flex flex-col justify-between'
       }`}
     >
-      {/* Ambient dynamic cinematic background lighting */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#F5C400]/15 via-amber-300/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
-        <div className="absolute top-1/3 -right-20 w-[650px] h-[650px] bg-gradient-to-bl from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
-        <div className="absolute inset-0 bg-cinema-grid opacity-40" />
+      {/* Ambient dynamic cinematic background lighting & studio set imagery */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* Subtle Film Soundstage Atmosphere Background Image */}
+        <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply filter contrast-110">
+          <img
+            src="https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?auto=format&fit=crop&w=2000&q=80"
+            alt="Film Studio Atmosphere"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Ambient Warm Golden & Cool Flares */}
+        <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-[750px] h-[750px] bg-gradient-to-tr from-[#F5C400]/35 via-amber-300/20 to-transparent rounded-full blur-[140px] animate-float-slow" />
+        <div className="absolute top-1/3 -right-20 w-[700px] h-[700px] bg-gradient-to-bl from-[#0A1128]/8 via-[#F5C400]/25 to-transparent rounded-full blur-[140px] animate-float-reverse" />
+        
+        {/* Horizontal Anamorphic Lens Flare Beam */}
+        <div className="absolute top-1/2 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#F5C400]/70 to-transparent blur-[1px] animate-beam-streak pointer-events-none" />
+
+        {/* 35mm Sprocket Track at the base */}
+        <div className="absolute bottom-0 inset-x-0 h-6 bg-film-sprockets opacity-70" />
+
+        {/* Blueprint grids */}
+        <div className="absolute inset-0 bg-cinema-grid opacity-60" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-35" />
       </div>
 
       {/* 1. Pinned Top Navigation Bar & Progress Indicator */}

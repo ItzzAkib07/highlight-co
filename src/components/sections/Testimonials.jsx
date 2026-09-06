@@ -26,10 +26,40 @@ export const Testimonials = () => {
 
   return (
     <section className="relative py-24 sm:py-32 px-6 sm:px-8 md:px-12 bg-white overflow-hidden select-none border-t border-[#0A1128]/10">
-      {/* Ambient background studio lighting & geometry */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-r from-[#F5C400]/15 via-amber-200/10 to-[#0A1128]/5 rounded-full blur-[170px] animate-pulse-glow pointer-events-none" />
-        <div className="absolute inset-0 bg-cinema-grid opacity-30" />
+      {/* Ambient background studio lighting, projector atmosphere & acoustic soundwaves */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* Subtle Cinema Theater Auditorium Background Texture */}
+        <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply filter contrast-110">
+          <img
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80"
+            alt="Theater Auditorium Backdrop"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Ambient Pulsing Studio Halo */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[600px] bg-gradient-to-r from-[#F5C400]/35 via-amber-200/20 to-[#0A1128]/8 rounded-full blur-[140px] animate-pulse-glow" />
+
+        {/* Projector Light Beam Cone from Top Center */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gradient-to-b from-[#F5C400]/25 via-amber-200/10 to-transparent blur-2xl pointer-events-none" />
+
+        {/* Acoustic Soundwave Equalizer Bars along bottom */}
+        <div className="absolute bottom-4 inset-x-0 flex items-end justify-center gap-1.5 opacity-40 pointer-events-none">
+          {[16, 28, 12, 36, 20, 44, 18, 30, 14, 40, 22, 16, 32, 24, 12, 38, 26, 18, 42, 14].map((h, i) => (
+            <div
+              key={i}
+              className="w-1.5 bg-[#0A1128] rounded-full animate-pulse"
+              style={{
+                height: `${h}px`,
+                animationDelay: `${(i % 5) * 0.2}s`,
+                animationDuration: '1.8s'
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="absolute inset-0 bg-cinema-grid opacity-50" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-25" />
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">

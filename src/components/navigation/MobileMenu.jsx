@@ -6,6 +6,16 @@ import { ArrowUpRight, X } from 'lucide-react';
 export const MobileMenu = ({ isOpen, onClose, links }) => {
   if (!isOpen) return null;
 
+  const handleLinkClick = () => {
+    onClose();
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   return (
     <div className="fixed inset-0 z-[6000] bg-white text-[#0A1128] flex flex-col justify-between p-6 sm:p-8 animate-fade-in md:hidden select-none">
       {/* Top Bar */}
@@ -30,7 +40,7 @@ export const MobileMenu = ({ isOpen, onClose, links }) => {
             key={link.name}
             to={link.path}
             end={link.path === '/'}
-            onClick={onClose}
+            onClick={handleLinkClick}
             className={({ isActive }) =>
               `text-3xl sm:text-4xl font-serif font-black transition-all flex items-center justify-between ${
                 isActive ? 'text-[#060B1A] pl-3 border-l-2 border-[#0A1128] bg-slate-50 py-1 rounded-r-xl' : 'text-[#0A1128] hover:text-[#D4A100]'
@@ -45,7 +55,7 @@ export const MobileMenu = ({ isOpen, onClose, links }) => {
         <div className="pt-4">
           <Link
             to="/contact"
-            onClick={onClose}
+            onClick={handleLinkClick}
             className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-[#F5C400] text-[#060B1A] font-heading font-black text-sm tracking-widest uppercase border border-[#0A1128]/20 shadow-md shadow-[#F5C400]/25"
           >
             <span>Start a Project</span>

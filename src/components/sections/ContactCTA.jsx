@@ -5,11 +5,32 @@ import { ArrowUpRight, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
 export const ContactCTA = () => {
   return (
     <section className="relative py-28 sm:py-36 px-6 sm:px-8 md:px-12 bg-white overflow-hidden select-none border-t border-[#0A1128]/10 text-[#0A1128]">
-      {/* Dynamic Golden Spotlight & Ambient Particles */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[600px] bg-gradient-to-tr from-[#F5C400]/20 via-[#FFE042]/12 to-transparent rounded-full blur-[180px] animate-pulse-glow pointer-events-none" />
-        <div className="absolute -bottom-20 right-10 w-[500px] h-[500px] bg-amber-300/10 rounded-full blur-[160px] animate-float-slow pointer-events-none" />
-        <div className="absolute inset-0 bg-cinema-grid opacity-40" />
+      {/* Dynamic Golden Spotlight, Film Studio Imagery & Ambient Atmosphere */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* Subtle Cinema Rig Studio Background */}
+        <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply filter contrast-110">
+          <img
+            src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2000&q=80"
+            alt="Film Studio Rig"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Dramatic Overhead Golden Studio Spotlight Cone */}
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[1200px] h-[700px] bg-gradient-to-b from-[#F5C400]/40 via-amber-200/20 to-transparent blur-[80px]" />
+
+        {/* Floating Warm Golden Flare */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[650px] bg-gradient-to-tr from-[#F5C400]/30 via-[#FFE042]/20 to-transparent rounded-full blur-[140px] animate-pulse-glow" />
+        <div className="absolute -bottom-20 right-10 w-[550px] h-[550px] bg-amber-300/20 rounded-full blur-[140px] animate-float-slow" />
+
+        {/* Viewfinder Corner Crosshairs */}
+        <div className="absolute top-10 left-10 w-7 h-7 border-t-2 border-l-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute top-10 right-10 w-7 h-7 border-t-2 border-r-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute bottom-10 left-10 w-7 h-7 border-b-2 border-l-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute bottom-10 right-10 w-7 h-7 border-b-2 border-r-2 border-[#F5C400] opacity-100 shadow-sm" />
+
+        <div className="absolute inset-0 bg-cinema-grid opacity-60" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-35" />
       </div>
 
       <div className="max-w-5xl mx-auto text-center relative z-10">

@@ -14,11 +14,32 @@ export const InteractiveServices = () => {
 
   return (
     <section className="relative py-24 sm:py-32 px-6 sm:px-8 md:px-12 bg-white text-[#0A1128] overflow-hidden select-none border-b border-[#0A1128]/10">
-      {/* Dynamic Background Media Glow & Grids */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 -right-20 w-[600px] h-[600px] bg-gradient-to-bl from-[#F5C400]/15 via-amber-300/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
-        <div className="absolute bottom-10 -left-20 w-[500px] h-[500px] bg-gradient-to-tr from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
-        <div className="absolute inset-0 bg-cinema-grid opacity-40" />
+      {/* Dynamic Background Media Glow, Aperture Blades & Optical Blueprints */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* Subtle Camera Rig & Color Suite Backdrop */}
+        <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply filter contrast-110">
+          <img
+            src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=2000&q=80"
+            alt="Color Grading Console Backdrop"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Ambient Light Flares */}
+        <div className="absolute top-1/3 -right-10 w-[700px] h-[700px] bg-gradient-to-bl from-[#F5C400]/35 via-amber-300/20 to-transparent rounded-full blur-[140px] animate-float-slow" />
+        <div className="absolute bottom-10 -left-10 w-[600px] h-[600px] bg-gradient-to-tr from-[#0A1128]/8 via-[#F5C400]/25 to-transparent rounded-full blur-[140px] animate-float-reverse" />
+        
+        {/* Rotating Optical Aperture Iris Blueprint Ring */}
+        <div className="absolute -bottom-20 right-1/4 w-[750px] h-[750px] rounded-full border border-[#0A1128]/15 animate-spin-slow-reverse pointer-events-none">
+          <div className="absolute inset-12 rounded-full border border-dashed border-[#F5C400]/40" />
+          <div className="absolute inset-28 rounded-full border border-dotted border-[#0A1128]/20" />
+          {/* Aperture Crosshairs */}
+          <div className="absolute top-1/2 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#F5C400]/40 to-transparent" />
+          <div className="absolute inset-y-0 left-1/2 w-[1.5px] bg-gradient-to-b from-transparent via-[#F5C400]/40 to-transparent" />
+        </div>
+
+        <div className="absolute inset-0 bg-cinema-grid opacity-60" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-35" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">

@@ -5,10 +5,19 @@ import { Award, Trophy } from 'lucide-react';
 export const ClientMarquee = () => {
   return (
     <section className="relative py-20 bg-white border-y border-[#0A1128]/10 overflow-hidden select-none text-[#0A1128]">
-      {/* Dynamic Background Studio Mesh */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[650px] h-[450px] bg-gradient-to-tr from-[#F5C400]/12 via-amber-300/8 to-transparent rounded-full blur-[160px] animate-float-slow pointer-events-none" />
-        <div className="absolute inset-0 bg-cinema-grid opacity-35" />
+      {/* Dynamic Background Studio Mesh & Film Sprocket Borders */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* Film Sprocket Track along top & bottom */}
+        <div className="absolute top-0 inset-x-0 h-4 bg-film-sprockets opacity-70" />
+        <div className="absolute bottom-0 inset-x-0 h-4 bg-film-sprockets opacity-70" />
+
+        {/* Ambient Golden Light Flare */}
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[750px] h-[500px] bg-gradient-to-tr from-[#F5C400]/30 via-amber-300/18 to-transparent rounded-full blur-[140px] animate-float-slow" />
+        
+        {/* Horizontal Laser Sweep */}
+        <div className="absolute top-1/2 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#F5C400]/60 to-transparent blur-[1px] animate-beam-streak pointer-events-none" />
+
+        <div className="absolute inset-0 bg-cinema-grid opacity-50" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 mb-12 text-center relative z-10">

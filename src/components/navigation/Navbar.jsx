@@ -41,6 +41,16 @@ export const Navbar = () => {
     { name: 'Contact', path: '/contact' },
   ];
 
+  const handleNavClick = () => {
+    playClickTone();
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { immediate: true });
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   return (
     <>
       <header
@@ -53,12 +63,14 @@ export const Navbar = () => {
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 flex items-center justify-between">
           {/* Left: Brand Logo & Studio Badge */}
           <div className="flex items-center gap-4 sm:gap-6">
-            <div
+            <Link
+              to="/"
+              onClick={handleNavClick}
               onMouseEnter={() => setCursor('hover')}
               onMouseLeave={resetCursor}
             >
               <BrandLogo size={isScrolled ? 'default' : 'lg'} isLight={true} />
-            </div>
+            </Link>
 
             <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#0A1128]/15 text-[10px] font-mono tracking-widest text-[#0A1128] shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#F5C400] animate-pulse" />
@@ -79,7 +91,7 @@ export const Navbar = () => {
                   setCursor('hover');
                 }}
                 onMouseLeave={resetCursor}
-                onClick={playClickTone}
+                onClick={handleNavClick}
                 className={({ isActive }) =>
                   `relative px-4 py-1.5 rounded-full font-heading text-xs tracking-widest uppercase font-black transition-all duration-300 ${
                     isActive

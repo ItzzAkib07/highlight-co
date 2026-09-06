@@ -77,15 +77,16 @@ export const FeaturedWork = () => {
 
     const initScrollTrigger = () => {
       ctx = gsap.context(() => {
-        const scrollDistance = cardCount * 650;
+        const isMobileScreen = window.innerWidth < 768;
+        const scrollDistance = isMobileScreen ? cardCount * 380 : cardCount * 650;
 
         const st = ScrollTrigger.create({
           trigger: section,
           pin: true,
           start: 'top top',
           end: () => `+=${scrollDistance}`,
-          scrub: 0.6,
-          anticipatePin: 1,
+          scrub: isMobileScreen ? 0.3 : 0.6,
+          anticipatePin: 0,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
             const rawProgress = self.progress;
@@ -388,17 +389,29 @@ export const FeaturedWork = () => {
       }}
       className="relative w-full h-screen min-h-[700px] max-h-[1080px] bg-white flex flex-col justify-between overflow-hidden select-none px-4 sm:px-6 md:px-8 lg:px-12 py-4 sm:py-6 text-brand-navy"
     >
-      {/* Background Ambient Studio Lighting & Grid Textures */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      {/* Background Ambient Studio Lighting, Film Perforations & Optical Lens Guides */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {/* Top & Bottom 35mm Film Sprocket Ticker Stripes */}
+        <div className="absolute top-0 inset-x-0 h-6 bg-film-sprockets opacity-70 z-10" />
+        <div className="absolute bottom-0 inset-x-0 h-6 bg-film-sprockets opacity-70 z-10" />
+
         {/* Ambient Warm Golden & Cool Studio Flares */}
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-[#F5C400]/15 via-amber-300/10 to-transparent rounded-full blur-[170px] animate-float-slow pointer-events-none" />
-        <div className="absolute top-1/3 right-10 w-[600px] h-[600px] bg-gradient-to-bl from-[#0A1128]/5 via-[#F5C400]/10 to-transparent rounded-full blur-[160px] animate-float-reverse pointer-events-none" />
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[750px] h-[750px] bg-gradient-to-tr from-[#F5C400]/35 via-amber-300/20 to-transparent rounded-full blur-[140px] animate-float-slow" />
+        <div className="absolute top-1/3 right-10 w-[650px] h-[650px] bg-gradient-to-bl from-[#0A1128]/8 via-[#F5C400]/25 to-transparent rounded-full blur-[140px] animate-float-reverse" />
         
         {/* Subtle Cinema Blueprint Dot Grid */}
-        <div className="absolute inset-0 bg-cinema-grid opacity-50" />
+        <div className="absolute inset-0 bg-cinema-grid opacity-60" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-35" />
+
+        {/* Giant Optical Lens Aperture Ring Concentric Graphic in Background */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full border border-[#0A1128]/15 animate-spin-slow pointer-events-none">
+          <div className="absolute inset-16 rounded-full border border-dashed border-[#F5C400]/40" />
+          <div className="absolute inset-32 rounded-full border border-[#0A1128]/15" />
+          <div className="absolute inset-48 rounded-full border border-dotted border-[#F5C400]/50" />
+        </div>
         
         {/* Soft Stage Spotlight Cones from Top */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-b from-[#F5C400]/10 via-amber-200/5 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[550px] bg-gradient-to-b from-[#F5C400]/25 via-amber-200/10 to-transparent blur-3xl" />
       </div>
 
       {/* Thin Top Section Progress Line */}
@@ -490,9 +503,6 @@ export const FeaturedWork = () => {
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMoveDrag}
           onMouseUp={handleMouseUp}
-          onTouchStart={handleMouseDown}
-          onTouchMove={handleMouseMoveDrag}
-          onTouchEnd={handleMouseUp}
         >
           {/* 3D Camera Perspective Space */}
           <div

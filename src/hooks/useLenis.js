@@ -9,19 +9,23 @@ export const useLenis = () => {
   const lenisRef = useRef(null);
 
   useEffect(() => {
-    // Disable smooth scroll on low power or touch if needed
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.5,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.0,
+      syncTouch: true,
+      smoothTouch: false, // Let mobile touch scroll naturally without lag
       infinite: false,
     });
 
     lenisRef.current = lenis;
+    window.__lenis = lenis;
 
     lenis.on('scroll', ScrollTrigger.update);
 
@@ -36,6 +40,7 @@ export const useLenis = () => {
       gsap.ticker.remove(updateTicker);
       lenis.destroy();
       lenisRef.current = null;
+      window.__lenis = null;
     };
   }, []);
 

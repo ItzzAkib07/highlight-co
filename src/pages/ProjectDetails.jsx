@@ -17,13 +17,33 @@ export const ProjectDetails = () => {
 
   return (
     <div className="relative w-full bg-white min-h-screen pt-28 pb-20 select-none overflow-hidden">
-      {/* Dynamic Animated Ambient Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-cinema-grid opacity-35" />
-        <div className="absolute inset-0 bg-cinema-lines opacity-20" />
-        <div className="absolute -top-32 right-10 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#F5C400]/15 via-[#F5C400]/5 to-transparent blur-[160px] animate-float-slow" />
-        <div className="absolute top-[40%] -left-32 w-[650px] h-[650px] rounded-full bg-gradient-to-tr from-[#0A1128]/10 via-[#F5C400]/10 to-transparent blur-[180px] animate-float-reverse" />
-        <div className="absolute bottom-10 right-[15%] w-[550px] h-[550px] rounded-full bg-gradient-to-tl from-[#F5C400]/15 to-transparent blur-[160px] animate-pulse-glow" />
+      {/* Dynamic Animated Ambient Background, Project Art Backdrop & Viewfinder Crosshairs */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none">
+        {/* Project Art Atmospheric Backdrop Image */}
+        {project.heroImage && (
+          <div className="absolute inset-0 opacity-[0.14] mix-blend-multiply filter contrast-110">
+            <img
+              src={project.heroImage}
+              alt={project.title}
+              className="w-full h-full object-cover object-center filter blur-sm scale-110"
+            />
+          </div>
+        )}
+
+        {/* 35mm Film Sprocket Side Rail */}
+        <div className="absolute top-0 inset-x-0 h-4 bg-film-sprockets opacity-70" />
+
+        {/* Ambient Warm Golden & Navy Light Flares */}
+        <div className="absolute -top-32 right-10 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-[#F5C400]/35 via-[#F5C400]/15 to-transparent blur-[140px] animate-float-slow" />
+        <div className="absolute top-[40%] -left-32 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-[#0A1128]/10 via-[#F5C400]/25 to-transparent blur-[140px] animate-float-reverse" />
+        <div className="absolute bottom-10 right-[15%] w-[600px] h-[600px] rounded-full bg-gradient-to-tl from-[#F5C400]/25 to-transparent blur-[130px] animate-pulse-glow" />
+
+        {/* Viewfinder Corner Crosshairs */}
+        <div className="absolute top-24 left-8 w-6 h-6 border-t-2 border-l-2 border-[#F5C400] opacity-100 shadow-sm" />
+        <div className="absolute top-24 right-8 w-6 h-6 border-t-2 border-r-2 border-[#F5C400] opacity-100 shadow-sm" />
+
+        <div className="absolute inset-0 bg-cinema-grid opacity-60" />
+        <div className="absolute inset-0 bg-cinema-lines opacity-35" />
       </div>
 
       {/* Top Back Navigation Bar */}
