@@ -9,18 +9,28 @@ export const useLenis = () => {
   const lenisRef = useRef(null);
 
   useEffect(() => {
-    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    // Detect mobile touch devices
+    const isTouchDevice =
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0 ||
+      window.innerWidth < 1024;
+
+    // Mobile / touch devices use 100% native hardware-accelerated 120Hz smooth scrolling
+    if (isTouchDevice) {
+      window.__lenis = null;
+      return;
+    }
 
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1.0,
-      touchMultiplier: 1.0,
-      syncTouch: true,
-      smoothTouch: false, // Let mobile touch scroll naturally without lag
+      touchMultiplier: 0,
+      syncTouch: false,
+      smoothTouch: false,
       infinite: false,
     });
 

@@ -16,6 +16,8 @@
     background-color: #FFFFFF;
     color: #0A1128;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   body {
@@ -24,6 +26,8 @@
     overflow-x: hidden;
     position: relative;
     cursor: default;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   h1, h2, h3, h4, h5, h6 {
