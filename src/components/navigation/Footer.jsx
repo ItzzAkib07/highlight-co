@@ -5,6 +5,7 @@ import { MagneticButton } from '../common/MagneticButton';
 import { useCursor } from '../../context/CursorContext';
 import { ArrowUpRight, Copy, Check, Film, Clock } from 'lucide-react';
 import { InstagramIcon, LinkedinIcon, YoutubeIcon } from '../common/SocialIcons';
+import { CreatorCredit } from '../common/CreatorCredit';
 
 export const Footer = () => {
   const { setCursor, resetCursor } = useCursor();
@@ -250,12 +251,14 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom copyright & socials */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 text-xs font-mono text-[#0A1128] font-bold">
-          <div className="flex items-center gap-6">
+        {/* Bottom copyright, creator credit & socials */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pt-6 text-xs font-mono text-[#0A1128] font-bold">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6">
             <span>© {new Date().getFullYear()} HIGHLIGHT CO. ALL RIGHTS RESERVED.</span>
             <span className="hidden md:inline">•</span>
             <span className="hidden md:inline text-[#D4A100] font-black">CRAFT FILMS THAT MATTER</span>
+            <span className="hidden sm:inline">•</span>
+            <CreatorCredit />
           </div>
 
           {/* Social Links */}

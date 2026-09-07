@@ -45,9 +45,9 @@ export const MagneticButton = ({
   };
 
   const sizeClasses = {
-    sm: "px-4 py-2 text-xs",
-    md: "px-6 py-3 text-sm",
-    lg: "px-8 py-4 text-base tracking-widest",
+    sm: "px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs tracking-wider whitespace-nowrap",
+    md: "px-4 py-2 sm:px-4.5 sm:py-2.5 text-xs sm:text-[13px] tracking-wider whitespace-nowrap",
+    lg: "px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm tracking-wider whitespace-nowrap",
   };
 
   const variantClasses = {
@@ -57,7 +57,7 @@ export const MagneticButton = ({
     ghost: "text-[#0A1128] hover:text-[#060B1A] hover:bg-[#F5C400]/20 font-heading font-black"
   };
 
-  const combinedClasses = `relative inline-flex items-center justify-center gap-2 rounded-full transition-all duration-300 transform select-none cursor-pointer overflow-hidden group ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
+  const combinedClasses = `relative inline-flex items-center justify-center gap-2 rounded-full transition-all duration-300 transform select-none cursor-pointer overflow-hidden whitespace-nowrap group ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
   const style = {
     transform: `translate3d(${offset.x}px, ${offset.y}px, 0)`,

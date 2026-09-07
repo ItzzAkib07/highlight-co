@@ -40,9 +40,9 @@ export const FeaturedWork = () => {
 
   // Responsive card metrics tailored for cylinder visibility
   const [metrics, setMetrics] = useState({
-    cardW: 440,
-    cardH: 278,
-    stageHeight: 760,
+    cardW: 860,
+    cardH: 500,
+    stageHeight: 740,
   });
 
   useEffect(() => {
@@ -50,13 +50,19 @@ export const FeaturedWork = () => {
       const w = window.innerWidth;
       const h = window.innerHeight;
 
-      // Calculate Card Metrics for desktop
-      let cardW = Math.round(w * 0.23 + 140);
-      const heightFactor = Math.min(1.0, Math.max(0.68, h / 900));
-      cardW = Math.round(cardW * heightFactor);
-      cardW = Math.min(480, Math.max(280, cardW));
-      const cardH = Math.round(cardW / 1.58);
-      const stageHeight = Math.min(820, Math.max(540, Math.round(h * 0.72)));
+      // Calculate stage height and card dimensions to cover the parent stage area
+      const stageHeight = Math.min(840, Math.max(540, Math.round(h * 0.74)));
+      
+      // Calculate responsive card dimensions filling ~75-85% of stage area
+      let cardH = Math.round(stageHeight * 0.82);
+      let cardW = Math.round(cardH * 1.72);
+
+      // Bound cardW to fit within container with balanced side breathing room
+      const maxW = Math.min(1160, Math.max(540, w - 140));
+      if (cardW > maxW) {
+        cardW = maxW;
+        cardH = Math.round(cardW / 1.72);
+      }
 
       setMetrics({ cardW, cardH, stageHeight });
     };
@@ -202,59 +208,57 @@ export const FeaturedWork = () => {
     if (window.innerWidth < 769) return;
 
     // Smoothly interpolate current progress towards targetProgress driven by scroll
-    progress.current += (targetProgress.current - progress.current) * 0.12;
+    progress.current += (targetProgress.current - progress.current) * 0.14;
 
     // Inertia damping for mouse tilt
     mouse.current.x += (mouse.current.targetX - mouse.current.x) * 0.08;
     mouse.current.y += (mouse.current.targetY - mouse.current.y) * 0.08;
 
     const cards = cardsRefs.current;
-    const h = metrics.stageHeight || 760;
-    const { cardH } = metrics;
+    const h = metrics.stageHeight || 740;
+    const effectiveCardHeight = metrics.cardH || 500;
     const continuousProgress = progress.current;
-    const roundedIndex = Math.round(continuousProgress);
-    const diffFromRound = continuousProgress - roundedIndex;
-
-    const easedDiff = (Math.sign(diffFromRound) * Math.pow(Math.abs(diffFromRound) * 2, 4.2)) / 2;
-    const virtualActiveIndex = roundedIndex + easedDiff;
 
     for (let i = 0; i < cardCount; i++) {
       const card = cards[i];
       if (!card) continue;
 
-      const offset = i - virtualActiveIndex;
+      // Continuous distance offset from current scroll position
+      const offset = i - continuousProgress;
       const absOffset = Math.abs(offset);
-      const sign = Math.sign(offset);
 
-      if (absOffset > 3.0) {
+      // Hide distant cards outside the visible frustum
+      if (absOffset > 2.2) {
         card.style.visibility = 'hidden';
+        card.style.opacity = '0';
         continue;
       } else {
         card.style.visibility = 'visible';
       }
 
-      const gap = 38;
-      const peekAmount = -60;
-      const effectiveCardHeight = cardH || 278;
-
-      let yPos = 0;
-      if (absOffset < 1.0) {
-        yPos = offset * (gap + peekAmount * (1 - absOffset));
-      } else {
-        const excess = absOffset - 1.0;
-        yPos = sign * (gap + excess * (effectiveCardHeight + gap));
-      }
-
+      // Smooth, continuous vertical motion for exit and entry
+      const yPos = offset * (effectiveCardHeight * 0.84 + 36);
       const yPercent = (yPos / h) * 100;
-      const zPos = -Math.pow(absOffset, 1.35) * 160;
-      const rotX = -offset * 14 + mouse.current.y * 5;
-      const rotY = mouse.current.x * 7;
-      const scale = Math.max(0.72, 1 - absOffset * 0.09);
-      const opacity = Math.max(0, 1 - Math.pow(absOffset / 2.8, 1.8));
+
+      // 3D Depth Push: active center sits forward (+30px), receding cards push back (-200px)
+      const zPos = 30 - Math.pow(absOffset, 1.28) * 200;
+
+      // Perspective Rotation: tilts gracefully as it exits / enters + cursor parallax
+      const rotX = -offset * 10 + mouse.current.y * 5;
+      const rotY = mouse.current.x * 6 - offset * 1.5;
+
+      // Gentle scale falloff on receding cards
+      const scale = Math.max(0.72, 1 - absOffset * 0.12);
+
+      // Graceful exponential opacity falloff for clean exit
+      const opacity = Math.max(0, 1 - Math.pow(absOffset / 1.75, 2.2));
+
+      // Layer stacking: active card stays frontmost
+      const zIndex = Math.round((10 - absOffset) * 10);
 
       card.style.transform = `translate3d(0, ${yPercent}%, ${zPos}px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(${scale})`;
       card.style.opacity = opacity.toFixed(3);
-      card.style.zIndex = `${Math.round((10 - absOffset) * 10)}`;
+      card.style.zIndex = `${zIndex}`;
     }
   }, [cardCount, metrics]);
 

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Sparkles } from '@react-three/drei';
+import { Float, Sparkles, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { useIsMobile } from '../../hooks/useMediaQuery';
 
@@ -13,39 +13,20 @@ const CinemaFilmCamera = () => {
   const irisBladesRef = useRef();
 
   useFrame((state, delta) => {
-    if (!rigRef.current) return;
-
-    // 1. Direct, natural, and responsive mouse cursor tracking (using React Three Fiber native pointer)
-    const px = state.pointer.x; // -1 to +1 across window
-    const py = state.pointer.y; // -1 to +1 vertically
-
-    // Target rotation: Natural 3/4 cinematic angle (-0.42 rad) + responsive orbit following cursor
-    const targetRotY = (px * 0.85) - 0.42 + Math.sin(state.clock.elapsedTime * 0.4) * 0.03;
-    // Upward cursor tilts camera up, downward tilts down
-    const targetRotX = -(py * 0.5) + 0.18 + Math.cos(state.clock.elapsedTime * 0.5) * 0.02;
-
-    // Smooth lerp damping
-    rigRef.current.rotation.y = THREE.MathUtils.lerp(rigRef.current.rotation.y, targetRotY, 0.08);
-    rigRef.current.rotation.x = THREE.MathUtils.lerp(rigRef.current.rotation.x, targetRotX, 0.08);
-
-    // Subtle position parallax following cursor
-    rigRef.current.position.x = THREE.MathUtils.lerp(rigRef.current.position.x, px * 0.18, 0.05);
-    rigRef.current.position.y = THREE.MathUtils.lerp(rigRef.current.position.y, (py * 0.12) - 0.08, 0.05);
-
-    // 2. Interactive Focus Pull: Lens gear and follow-focus motor gear turn with horizontal cursor movement
+    // 1. Continuous Interactive Focus Pull Gear Rotation
     if (focusGearRef.current) {
-      focusGearRef.current.rotation.z += (px * 0.12) + delta * 0.3;
+      focusGearRef.current.rotation.z += delta * 0.5;
     }
     if (followFocusGearRef.current) {
-      followFocusGearRef.current.rotation.z -= (px * 0.24) + delta * 0.6;
+      followFocusGearRef.current.rotation.z -= delta * 0.8;
     }
 
-    // 3. Aperture iris subtle breathing
+    // 2. Aperture iris subtle breathing
     if (irisBladesRef.current) {
-      irisBladesRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.6) * 0.15;
+      irisBladesRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.8) * 0.2;
     }
 
-    // 4. Studio Recording Tally Light Pulsing
+    // 3. Studio Recording Tally Light Pulsing
     if (tallyLedRef.current) {
       const pulse = (Math.sin(state.clock.elapsedTime * 4.5) + 1) * 0.5;
       tallyLedRef.current.material.emissiveIntensity = 0.8 + pulse * 2.2;
@@ -465,18 +446,31 @@ export const HeroScene = () => {
 
         {/* Ambient Golden Cinema Dust Floating Particles */}
         <Sparkles
-          count={40}
+          count={35}
           scale={5.5}
-          size={2.8}
+          size={2.5}
           speed={0.4}
           color="#F5C400"
-          opacity={0.7}
+          opacity={0.65}
         />
 
         {/* Organic Floating Movement */}
-        <Float speed={2.0} rotationIntensity={0.12} floatIntensity={0.28}>
+        <Float speed={1.8} rotationIntensity={0.08} floatIntensity={0.2}>
           <CinemaFilmCamera />
         </Float>
+
+        {/* 360-Degree Interactive Orbit Controls */}
+        <OrbitControls
+          enableZoom={false}
+          enablePan={false}
+          enableRotate={true}
+          rotateSpeed={0.85}
+          dampingFactor={0.07}
+          autoRotate={true}
+          autoRotateSpeed={0.7}
+          minPolarAngle={Math.PI / 4.8} // Allows inspecting top handles
+          maxPolarAngle={Math.PI / 1.55} // Allows inspecting bottom rods
+        />
       </Canvas>
     </div>
   );

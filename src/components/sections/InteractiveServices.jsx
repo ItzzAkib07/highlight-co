@@ -111,10 +111,59 @@ export const InteractiveServices = () => {
                     />
                   </div>
 
-                  {/* Mobile expansion description */}
+                  {/* Mobile expansion: Rich Image, Headline, Specs, Capabilities & Direct Link */}
                   {isCurrent && (
-                    <div className="mt-4 pt-3 text-sm text-[#0A1128] font-medium max-w-xl animate-fade-in lg:hidden">
-                      <p>{service.shortDescription}</p>
+                    <div className="mt-4 pt-4 border-t border-[#0A1128]/10 animate-fade-in lg:hidden flex flex-col space-y-4">
+                      {/* Live Media Thumbnail */}
+                      <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-[#0A1128] shadow-md">
+                        <img
+                          src={service.image}
+                          alt={service.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover object-center"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/80 via-[#0A1128]/20 to-transparent" />
+                        <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0A1128]/95 backdrop-blur-md border border-[#F5C400]/50 text-[#F5C400] font-mono text-[11px] font-black shadow-sm">
+                          {service.number} // ACTIVE SPEC
+                        </div>
+                      </div>
+
+                      {/* Headline & Narrative */}
+                      <div>
+                        <h4 className="text-lg sm:text-xl font-serif font-black text-[#0A1128] leading-snug mb-1.5">
+                          {service.headline}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-[#0A1128]/85 font-medium leading-relaxed">
+                          {service.longDescription || service.shortDescription}
+                        </p>
+                      </div>
+
+                      {/* Capability Bullets */}
+                      {service.capabilities && service.capabilities.length > 0 && (
+                        <div className="space-y-2 pt-2 border-t border-[#0A1128]/10">
+                          <span className="text-[10px] uppercase font-mono tracking-widest text-[#0A1128] font-black block">
+                            Deliverables & Standards
+                          </span>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {service.capabilities.slice(0, 4).map((cap, i) => (
+                              <div key={i} className="flex items-center gap-2 text-xs text-[#0A1128] font-sans font-bold">
+                                <CheckCircle2 size={14} className="text-[#0A1128] flex-shrink-0" />
+                                <span>{cap}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Direct Action Link */}
+                      <Link
+                        to="/services"
+                        onClick={playClickTone}
+                        className="w-full py-3 rounded-full bg-[#F5C400] text-[#060B1A] font-heading font-black text-xs uppercase tracking-widest text-center hover:bg-[#FFE042] border border-[#0A1128]/20 transition-colors flex items-center justify-center gap-2 shadow-md shadow-[#F5C400]/25 active:scale-95"
+                      >
+                        <span>Explore {service.title} Specs</span>
+                        <ArrowUpRight size={14} />
+                      </Link>
                     </div>
                   )}
                 </div>
